@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takeout Turbo Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Takeout Turbo Dashboard</h1>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <div id="latency-stats" style="font-size: 0.8rem; color: var(--text-dim)">Latency: --ms</div>
+                <div id="connection-status" class="status-badge">Connecting to aria2c...</div>
+            </div>
+        </header>
+
+        <div id="status-message"></div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Speed</div>
+                <div id="total-speed" class="stat-value">0 MB/s</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Active Downloads</div>
+                <div id="active-count" class="stat-value">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Waiting in Queue</div>
+                <div id="waiting-count" class="stat-value">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Success</div>
+                <div id="completed-count" class="stat-value">0 / 114</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="speedChart"></canvas>
+        </div>
+
+        <div class="stats-grid" id="completion-stats" style="margin-top: 2rem;">
+            <div class="stat-card">
+                <div class="stat-label">Batch ETA (Current files)</div>
+                <div id="batch-eta" class="stat-value">--</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Global ETA (All 114)</div>
+                <div id="global-eta" class="stat-value">--</div>
+            </div>
+        </div>
+
+        <div class="download-list" id="download-list">
+            <!-- Download items will be injected here -->
+        </div>
+
+        <div class="system-log" id="system-log">
+            <div class="log-entry info">
+                <span class="log-time">[System]</span>
+                <span class="log-msg">Dashboard initialized. Connecting to aria2c...</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const RPC_URL = 'http://localhost:6806/jsonrpc';
+        let speedChart;
+        const speedHistory = [];
+        const MAX_HISTORY = 60; // 2 minutes at 2s interval
+
+        async function callRpc(method, params = []) {
+            try {
+                const response = await fetch(RPC_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        jsonrpc: '2.0',
+                        id: 'dashboard',
+                        method: method,
+                        params: params
+                    })
+                });
+                return await response.json();
+            } catch (err) {
+                console.error('RPC Error:', err);
+                return null;
+            }
+        }
+
+        function formatSpeed(bytesPerSec) {
+            const mb = bytesPerSec / (1024 * 1024);
+            return mb.toFixed(1) + ' MB/s';
+        }
+
+        function formatTime(seconds) {
+            if (!isFinite(seconds) || seconds < 0) return '--';
+            if (seconds === 0) return '0s';
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = Math.floor(seconds % 60);
+            if (h > 0) return `${h}h ${m}m`;
+            if (m > 0) return `${m}m ${s}s`;
+            return `${s}s`;
+        }
+
+        function updateStats(globalStat) {
+            const speed = parseInt(globalStat.downloadSpeed);
+            document.getElementById('total-speed').textContent = formatSpeed(speed);
+            document.getElementById('active-count').textContent = globalStat.numActive;
+            document.getElementById('waiting-count').textContent = globalStat.numWaiting;
+
+            // numStopped is total that aren't active/waiting, but we need to know success vs fail
+            // We'll update completed-count in the refresh loop after checking tellActive/tellStopped if possible
+            // For now, let's at least show real connectivity
+
+            const connStatus = document.getElementById('connection-status');
+            if (speed === 0 && parseInt(globalStat.numActive) > 0) {
+                connStatus.textContent = 'STALLED - Check Disk/Network';
+                connStatus.className = 'status-badge error';
+            } else {
+                connStatus.textContent = 'Live Connection';
+                connStatus.className = 'status-badge complete';
+            }
+        }
+
+        function addLog(msg, type = 'info') {
+            const log = document.getElementById('system-log');
+            const entry = document.createElement('div');
+            const time = new Date().toLocaleTimeString();
+            entry.className = `log-entry ${type}`;
+            entry.innerHTML = `<span class="log-time">[${time}]</span><span class="log-msg">${msg}</span>`;
+            log.prepend(entry);
+            if (log.childNodes.length > 50) log.removeChild(log.lastChild);
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('speedChart').getContext('2d');
+            speedChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array(MAX_HISTORY).fill(''),
+                    datasets: [{
+                        label: 'Download Speed (MB/s)',
+                        data: Array(MAX_HISTORY).fill(0),
+                        borderColor: '#a855f7',
+                        backgroundColor: 'rgba(168, 85, 247, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2,
+                        pointRadius: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { display: false },
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: { color: '#9ca3af' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateChart(speedMB) {
+            if (!speedChart) return;
+            speedChart.data.datasets[0].data.push(speedMB);
+            speedChart.data.datasets[0].data.shift();
+            speedChart.update('none');
+        }
+
+        function createDownloadItem(item) {
+            const total = parseInt(item.totalLength);
+            const completed = parseInt(item.completedLength);
+            const percent = total > 0 ? ((completed / total) * 100).toFixed(1) : 0;
+            const speedVal = parseInt(item.downloadSpeed);
+            const speed = formatSpeed(speedVal);
+            const fileName = item.files[0].path.split('/').pop() || 'Initializing...';
+            const remaining = total - completed;
+            const etaSeconds = speedVal > 0 ? remaining / speedVal : Infinity;
+            const eta = formatTime(etaSeconds);
+
+            return `
+                <div class="download-item">
+                    <div class="file-info">
+                        <div class="file-name">${fileName}</div>
+                        <div class="status-badge">${item.status.toUpperCase()}</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width: ${percent}%"></div>
+                        </div>
+                        <div class="progress-info">
+                            <span>${percent}%</span>
+                            <span>${(completed / (1024 * 1024 * 1024)).toFixed(1)}GB / ${(total / (1024 * 1024 * 1024)).toFixed(1)}GB</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+                        <span style="font-weight: 600; color: var(--accent-secondary)">${item.status === 'active' ? speed : 'WAITING'}</span>
+                        <span style="font-size: 0.8rem; color: var(--text-dim)">ETA: ${item.status === 'active' ? eta : '--'}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function refresh() {
+            const startFetch = Date.now();
+            const globalRes = await callRpc('aria2.getGlobalStat');
+            const latency = Date.now() - startFetch;
+            document.getElementById('latency-stats').textContent = `Latency: ${latency}ms`;
+
+            if (!globalRes) {
+                document.getElementById('connection-status').textContent = 'OFFLINE - Retrying...';
+                document.getElementById('connection-status').className = 'status-badge error';
+                addLog('Lost connection to aria2c RPC.', 'error');
+                return;
+            }
+
+            document.getElementById('status-message').style.display = 'none';
+            updateStats(globalRes.result);
+
+            const speedMB = parseInt(globalRes.result.downloadSpeed) / (1024 * 1024);
+            updateChart(speedMB);
+
+            const activeRes = await callRpc('aria2.tellActive');
+            const stoppedRes = await callRpc('aria2.tellStopped', [0, 1000]);
+
+            if (activeRes && stoppedRes) {
+                const list = document.getElementById('download-list');
+                const activeHtml = activeRes.result.map(createDownloadItem).join('');
+                list.innerHTML = activeHtml || '<div style="text-align: center; color: var(--text-dim); padding: 2rem;">No active downloads. Check log for details.</div>';
+
+                const completedCount = stoppedRes.result.filter(f => f.status === 'complete').length;
+                const errors = stoppedRes.result.filter(f => f.status === 'error').length;
+
+                const prevCompletedText = document.getElementById('completed-count').textContent;
+                const prevCompleted = parseInt(prevCompletedText.split('/')[0]) || 0;
+
+                if (completedCount > prevCompleted) {
+                    addLog(`Download finished successfully! (${completedCount}/114)`, 'success');
+                }
+
+                document.getElementById('completed-count').textContent = `${completedCount} / 114`;
+
+                // Calculate Batch and Global ETAs
+                const totalSpeed = parseInt(globalRes.result.downloadSpeed);
+                if (totalSpeed > 0) {
+                    const activeRemaining = activeRes.result.reduce((acc, item) => acc + (parseInt(item.totalLength) - parseInt(item.completedLength)), 0);
+                    document.getElementById('batch-eta').textContent = formatTime(activeRemaining / totalSpeed);
+
+                    const totalEstimatedBytes = 114 * 53 * 1024 * 1024 * 1024;
+                    const totalCompletedBytes = (completedCount * 53 * 1024 * 1024 * 1024) + activeRes.result.reduce((acc, item) => acc + parseInt(item.completedLength), 0);
+                    const globalRemaining = Math.max(0, totalEstimatedBytes - totalCompletedBytes);
+                    document.getElementById('global-eta').textContent = formatTime(globalRemaining / totalSpeed);
+                } else {
+                    document.getElementById('batch-eta').textContent = '--';
+                    document.getElementById('global-eta').textContent = '--';
+                }
+            }
+        }
+
+        initChart();
+        addLog('System monitoring started.', 'info');
+        setInterval(refresh, 2000);
+        refresh();
+    </script>
+</body>
+
+</html>

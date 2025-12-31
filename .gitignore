@@ -5,3 +5,7 @@ urls_direct.txt
 *.aria2
 *.zip
 .DS_Store
+aria2.log
+*.zip
+aria2_stdout.log
+supervisor.log

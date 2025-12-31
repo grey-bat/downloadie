@@ -4,7 +4,7 @@
 PROJECT_DIR="/Users/greg/.gemini/antigravity/scratch"
 
 echo "===================================================="
-echo "    Google Takeout Turbo Downloader (Desktop)"
+echo "    Google Takeout Turbo Dashboard Launcher"
 echo "===================================================="
 
 # Check if aria2c is installed
@@ -14,17 +14,9 @@ then
     exit 1
 fi
 
-# Run the monitoring script in background
-echo "-> Starting failure monitor (Alerts will pop up if cookies expire)..."
-python3 "$PROJECT_DIR/monitor_takeout.py" &
-MONITOR_PID=$!
-
-# Run the downloader
-echo "-> Starting high-speed transfer..."
+# Switch to project dir and launch the dashboard app
 cd "$PROJECT_DIR"
-sh ./download_takeout_aria2.sh
+python3 start_app.py
 
-# Cleanup
-kill $MONITOR_PID
 echo "Done."
 sleep 5
