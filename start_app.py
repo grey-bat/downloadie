@@ -81,16 +81,30 @@ class Extractor:
 
 def start_aria2():
     print("Checking port 6806...")
+    
+    # 1. Broadly kill any existing aria2c processes first
+    os.system("/usr/bin/pkill -9 aria2c 2>/dev/null")
+    
+    # 2. Targeted cleanup of port 6806
     try:
-        pid_output = subprocess.check_output(["lsof", "-ti:6806"], stderr=subprocess.DEVNULL).decode().strip()
+        # Try both 'lsof' and a direct kill just in case
+        lsof_path = "/usr/sbin/lsof"
+        if not os.path.exists(lsof_path):
+            lsof_path = "lsof" # Fallback to PATH
+            
+        pid_output = subprocess.check_output([lsof_path, "-ti:6806"], stderr=subprocess.DEVNULL).decode().strip()
         if pid_output:
             pids = pid_output.split('\n')
             for pid in pids:
+                print(f"Force-clearing PID {pid} from port 6806...")
                 os.system(f"kill -9 {pid} 2>/dev/null")
             time.sleep(2)
-    except Exception:
+    except Exception as e:
+        # If lsof fails, we already tried pkill, so we keep going
+        print(f"Port check info: {e}")
         pass
 
+    # 3. Last resort - check if it's still blocked
     print("Starting aria2c...")
     cmd = ["sh", os.path.join(PROJECT_DIR, "download_takeout_aria2.sh")]
     return subprocess.Popen(cmd, cwd=PROJECT_DIR)
@@ -102,6 +116,22 @@ def open_dashboard():
     webbrowser.open(file_url)
 
 if __name__ == "__main__":
+    # Singleton check
+    lock_file = os.path.join(PROJECT_DIR, ".app.lock")
+    if os.path.exists(lock_file):
+        try:
+            with open(lock_file, 'r') as f:
+                old_pid = int(f.read().strip())
+                os.kill(old_pid, 0) # Check if process exists
+                print(f"Error: Another instance of Takeout Turbo is already running (PID {old_pid}).")
+                print("Please close that instance first or delete .app.lock if it's a stale file.")
+                sys.exit(1)
+        except (ProcessLookupError, ValueError):
+            os.remove(lock_file)
+            
+    with open(lock_file, 'w') as f:
+        f.write(str(os.getpid()))
+
     process = None
     extractor = Extractor()
     open_dashboard()
@@ -110,10 +140,19 @@ if __name__ == "__main__":
     print(f"Photos will be flattened to: {OUTPUT_DIR}")
     print("Press Ctrl+C to stop.")
 
+    retry_count = 0
     while True:
         try:
             if process is None or process.poll() is not None:
+                if process is not None:
+                    retry_count += 1
+                    wait_time = min(30, retry_count * 5)
+                    print(f"[{time.strftime('%H:%M:%S')}] aria2c failed to stay active. Retry #{retry_count} in {wait_time}s...")
+                    time.sleep(wait_time)
+                
                 process = start_aria2()
+                if process and process.poll() is None:
+                    retry_count = 0 # Reset on success
             
             # Check for completed zips to extract
             extractor.process_completed()
@@ -122,6 +161,8 @@ if __name__ == "__main__":
             
         except KeyboardInterrupt:
             print("\nShutting down...")
+            if os.path.exists(lock_file):
+                os.remove(lock_file)
             if process:
                 process.send_signal(signal.SIGINT)
                 try:
