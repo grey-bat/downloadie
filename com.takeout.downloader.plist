@@ -12,7 +12,7 @@
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
-    <false/>
+    <true/>
     <key>StandardOutPath</key>
     <string>/Users/greg/.gemini/antigravity/scratch/launchagent.log</string>
     <key>StandardErrorPath</key>

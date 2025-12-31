@@ -1,37 +1,23 @@
 #!/bin/bash
 aria2c \
-  -i /Users/greg/.gemini/antigravity/scratch/urls_with_rapt.txt \
+  -i /Users/greg/.gemini/antigravity/scratch/urls_direct.txt \
   -d /Volumes/Backup/photos \
   -j 3 \
-  -x 16 \
-  -s 16 \
-  --stream-piece-selector=random \
-  --min-split-size=1M \
-  --connect-timeout=10 \
-  --timeout=30 \
+  -s 4 \
+  -x 4 \
+  --connect-timeout=60 \
+  --timeout=60 \
   -c \
-  --file-allocation=prealloc \
-  --retry-wait=5 \
+  --file-allocation=none \
+  --enable-mmap=false \
+  --disk-cache=128M \
+  --enable-rpc=true \
+  --rpc-listen-all=false \
+  --rpc-listen-port=6806 \
+  --rpc-allow-origin-all=true \
+  --retry-wait=10 \
   --max-tries=0 \
-  --summary-interval=30 \
   --log=aria2.log \
-  --log-level=notice \
+  --log-level=debug \
   --load-cookies=/Users/greg/.gemini/antigravity/scratch/cookies.txt \
-  --header="accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
-  --header="accept-language: en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7,es-AR;q=0.6,es;q=0.5" \
-  --header="dnt: 1" \
-  --header="priority: u=0, i" \
-  --header="referer: https://takeout.google.com/" \
-  --header="sec-ch-ua: \"Google Chrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"" \
-  --header="sec-ch-ua-mobile: ?0" \
-  --header="sec-ch-ua-platform: \"macOS\"" \
-  --header="sec-fetch-dest: document" \
-  --header="sec-fetch-mode: navigate" \
-  --header="sec-fetch-site: same-site" \
-  --header="upgrade-insecure-requests: 1" \
-  --header="user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" \
-  --header="x-browser-channel: stable" \
-  --header="x-browser-copyright: Copyright 2025 Google LLC. All Rights reserved." \
-  --header="x-browser-validation: AUXUCdutEJ+6gl6bYtz7E2kgIT4=" \
-  --header="x-browser-year: 2025" \
-  --header="x-client-data: CPeNywE="
+  --user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"

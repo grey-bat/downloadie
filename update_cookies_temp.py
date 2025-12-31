@@ -1,0 +1,16 @@
+cookie_str = 'SEARCH_SAMESITE=CgQI5Z8B; AEC=AaJma5suFi6BaU6aB8xSntRxV-we0IqP2kc5rNlCaogjtzpH8wHE4f5dZg; __Secure-BUCKET=CPcE; OTZ=8414812_68_64_73560_68_416340; NID=527=h71vzJ4Zhald3YLoVKD9w4_g89_5baQHUUTAIaDNcsFvUkso6nZRwkD7ojh-28tCuPZRFreIXui5_QwywZXagY8B0iRH6gOKejZavhp77ZYRFIryYdpH2HAqpyMwz4l30ZiVZJVJdzWWkFE-htpGw0QQFK2P7KkCx0u65Gf86vFCZ5ErPc16Ed1kqxMi0tH-mBFsFUSjnakYXA30TrjxWa0Uu603M0BY6MyVs8TSF7YLnfZfoWdycxTFvI1yk9wi6vJouhKr6SyrhXqgDnBIbhq3_d4qvwsDNh0FaTwBoozfWOee3YMO4jtgG7xkWROLrVL_XfpCjSaTFhxu53pk_xPd6LlEmWj9v8Qg6QzCAXsRVR_k9zo0iN2O8glqbyem8OOErjfvXptM1YiF-mV77FlzbYcuMKfW47vs9LJoAzmXZs20l7q-z_4KLX_4_d0KCOGYzdoMe3NYJAvE7jg_8jCZpgQA6V7gQQQG9UVCOXQEekZfHncARkfcuQwAdEOLbCpm1GuJSm8KGrp8QonOh3NSUeUTc-HVtYTu3RqnGB2fbfCtLyglXSzpsuLDdepZMcUGpoKKWZLoPkRcVl_UfXimNsL6831aImhpkV8P2rZ10RmZeA2C59uvcKzWcbXv5PeJbojt7xaoouWI9bF4Njj6l0dediQI3oSwc03wDlxitSZ-v2V8WWJws6uGCXmTmSqbjSunx8dcKTEKIQmmJscPs4U2ouQWOOT343GK-PwO; __Secure-1PSIDTS=sidts-CjIBflaCdYQUcPwMNgK_ZYnnAjPfmiLu37ERjlXFO9s3mXD12madsadubcOH1d8wP8QY4RAA; __Secure-3PSIDTS=sidts-CjIBflaCdYQUcPwMNgK_ZYnnAjPfmiLu37ERjlXFO9s3mXD12madsadubcOH1d8wP8QY4RAA; SID=g.a0005AiqAgHnF7U-KG1ndMLXya62zPPaDdrY-aVXe6xRA89MvhvGBEgVQMHH0dBeC6PNTlYj2AACgYKAeUSARUSFQHGX2MivTE5mWa5_SRs-m-UIP3LQhoVAUF8yKpDZvISojcGzu67X0Wijhht0076; __Secure-1PSID=g.a0005AiqAgHnF7U-KG1ndMLXya62zPPaDdrY-aVXe6xRA89MvhvGZKK8Q22doh-UTgpWirza1QACgYKAUYSARUSFQHGX2Mi-phkvacbRJLNfdn9HwTYbxoVAUF8yKqDybQ_PQo-K0XlAJo3QTi70076; __Secure-3PSID=g.a0005AiqAgHnF7U-KG1ndMLXya62zPPaDdrY-aVXe6xRA89MvhvGs1ljWbhzzA-XUYAMr0MQygACgYKAVsSARUSFQHGX2MiAvPexKDxPJCD8Fyu6d2b6xoVAUF8yKrrs2AFBykDdMo6BeNxYBVa0076; HSID=ANGivLlpZPHQFFJNs; SSID=A27LfiibYaL47ZVee; APISID=nRGOgBku6gsnn4Ha/AZv3XmpCVyyP7L-n-; SAPISID=AeRclbALOsTom4G4/AqNt2wAsJWsZKBLMS; __Secure-1PAPISID=AeRclbALOsTom4G4/AqNt2wAsJWsZKBLMS; __Secure-3PAPISID=AeRclbALOsTom4G4/AqNt2wAsJWsZKBLMS; OSID=g.a0005AiqApEYhsguXyE0LMRMOoapKedm-pCXRWwcEF1UtAP2MYAa4hSjSNr6_BauZL0cwNnZ8wACgYKAVkSARUSFQHGX2MiMOC5-W57m5zxaPFKJ68rzxoVAUF8yKoEBqvtjvCmO_rgl4xBSRTN0076; __Secure-OSID=g.a0005AiqApEYhsguXyE0LMRMOoapKedm-pCXRWwcEF1UtAP2MYAa17niQH1cg4wAP-wtnyrSjAACgYKAeMSARUSFQHGX2MiycazhETYZ7WhbMrUmdDvBBoVAUF8yKoPeC3Mf17gdl3jhtCHJPId0076; SIDCC=AKEyXzVzESiEES0EBl1cB265e53ojY_i_7hbHvpBD0jaJ__fbp7mdZDsWGczkAx7obiO4z20Qdo; __Secure-1PSIDCC=AKEyXzWtOcXO6ni08hL3X_DMdVlkEGZUxh9NGgTvXNvRvp5nYe_Z1cFo2CsefQOV46rC1US42g; __Secure-3PSIDCC=AKEyXzVJn5hTToS5hndqBYbcdFCuoQfKLiyXR6IqD_tPEOIyx8iDdkHMiGDOsKbuNJi8QzoPalg'
+output_path = '/Users/greg/.gemini/antigravity/scratch/cookies.txt'
+
+cookies = cookie_str.split("; ")
+netscape_lines = ["# Netscape HTTP Cookie File\n"]
+
+for c in cookies:
+    if "=" not in c: continue
+    name, val = c.split("=", 1)
+    # domain, tailmatch, path, secure, expires, name, value
+    netscape_lines.append(f".google.com\tTRUE\t/\tTRUE\t0\t{name}\t{val}\n")
+
+with open(output_path, 'w') as f:
+    f.writelines(netscape_lines)
+
+print(f"Updated cookies.txt with {len(cookies)} cookies.")

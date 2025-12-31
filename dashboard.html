@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Takeout Turbo Dashboard</title>
+    <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -12,7 +13,11 @@
 <body>
     <div class="container">
         <header>
-            <h1>Takeout Turbo Dashboard</h1>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="icon.png" alt="Icon"
+                    style="width: 50px; height: 50px; border-radius: 12px; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);">
+                <h1>Takeout Turbo Dashboard</h1>
+            </div>
             <div style="display: flex; gap: 10px; align-items: center;">
                 <div id="latency-stats" style="font-size: 0.8rem; color: var(--text-dim)">Latency: --ms</div>
                 <div id="connection-status" class="status-badge">Connecting to aria2c...</div>
@@ -38,6 +43,18 @@
                 <div class="stat-label">Success</div>
                 <div id="completed-count" class="stat-value">0 / 114</div>
             </div>
+            <div class="stat-card">
+                <div class="stat-label">Concurrency</div>
+                <div style="margin-top: 10px;">
+                    <select id="concurrency-select" class="status-badge"
+                        style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--accent-primary); cursor: pointer;"
+                        onchange="changeConcurrency(this.value)">
+                        <option value="1">1 File</option>
+                        <option value="2">2 Files</option>
+                        <option value="3" selected>3 Files</option>
+                    </select>
+                </div>
+            </div>
         </div>
 
         <div class="chart-container">
@@ -52,6 +69,19 @@
             <div class="stat-card">
                 <div class="stat-label">Global ETA (All 114)</div>
                 <div id="global-eta" class="stat-value">--</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Connections/File</div>
+                <div style="margin-top: 10px;">
+                    <select id="split-select" class="status-badge"
+                        style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--accent-secondary); cursor: pointer;"
+                        onchange="changeOption('split', this.value); changeOption('max-connection-per-server', this.value)">
+                        <option value="4" selected>4 (Stable)</option>
+                        <option value="8">8 (Fast)</option>
+                        <option value="16">16 (Turbo)</option>
+                        <option value="32">32 (Extreme)</option>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -89,6 +119,17 @@
             } catch (err) {
                 console.error('RPC Error:', err);
                 return null;
+            }
+        }
+
+        async function changeConcurrency(val) {
+            await changeOption('max-concurrent-downloads', val);
+        }
+
+        async function changeOption(key, val) {
+            const res = await callRpc('aria2.changeGlobalOption', [{ [key]: val }]);
+            if (res && res.result === "OK") {
+                console.log(`Option ${key} changed to ${val}`);
             }
         }
 
@@ -221,9 +262,24 @@
             if (!globalRes) {
                 document.getElementById('connection-status').textContent = 'OFFLINE - Retrying...';
                 document.getElementById('connection-status').className = 'status-badge error';
-                addLog('Lost connection to aria2c RPC.', 'error');
                 return;
             }
+
+            // Fetch activity logs from Python backend
+            try {
+                const actRes = await fetch('activity.json?t=' + Date.now());
+                if (actRes.ok) {
+                    const logs = await actRes.json();
+                    const logContainer = document.getElementById('system-log');
+                    logContainer.innerHTML = '';
+                    logs.forEach(log => {
+                        const entry = document.createElement('div');
+                        entry.className = `log-entry ${log.type}`;
+                        entry.innerHTML = `<span class="log-time">[${log.time}]</span><span class="log-msg">${log.msg}</span>`;
+                        logContainer.appendChild(entry);
+                    });
+                }
+            } catch (e) { }
 
             document.getElementById('status-message').style.display = 'none';
             updateStats(globalRes.result);
@@ -240,15 +296,6 @@
                 list.innerHTML = activeHtml || '<div style="text-align: center; color: var(--text-dim); padding: 2rem;">No active downloads. Check log for details.</div>';
 
                 const completedCount = stoppedRes.result.filter(f => f.status === 'complete').length;
-                const errors = stoppedRes.result.filter(f => f.status === 'error').length;
-
-                const prevCompletedText = document.getElementById('completed-count').textContent;
-                const prevCompleted = parseInt(prevCompletedText.split('/')[0]) || 0;
-
-                if (completedCount > prevCompleted) {
-                    addLog(`Download finished successfully! (${completedCount}/114)`, 'success');
-                }
-
                 document.getElementById('completed-count').textContent = `${completedCount} / 114`;
 
                 // Calculate Batch and Global ETAs

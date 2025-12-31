@@ -20,13 +20,26 @@ class Extractor:
         # Ensure target dir exists
         if not os.path.exists(self.target_dir):
             os.makedirs(self.target_dir)
-            # Prevent Spotlight indexing on macOS
             try:
                 subprocess.run(["mdutil", "-i", "off", self.target_dir], capture_output=True)
                 with open(os.path.join(self.target_dir, ".metadata_never_index"), 'w') as f:
                     f.write("")
             except:
                 pass
+        self.log_activity("System initialized. Ready for extraction.")
+
+    def log_activity(self, msg, type="info"):
+        log_file = os.path.join(PROJECT_DIR, "activity.json")
+        try:
+            logs = []
+            if os.path.exists(log_file):
+                with open(log_file, 'r') as f:
+                    logs = json.load(f)
+            logs.insert(0, {"time": time.strftime("%H:%M:%S"), "msg": msg, "type": type})
+            with open(log_file, 'w') as f:
+                json.dump(logs[:50], f)
+        except:
+            pass
         
     def process_completed(self):
         try:
@@ -56,15 +69,15 @@ class Extractor:
 
     def extract(self, zip_path):
         base = os.path.basename(zip_path)
-        print(f"[{time.strftime('%H:%M:%S')}] EXTRACTING: {base} (Flattened)...")
+        self.log_activity(f"Starting extraction: {base}")
         # -j = junk paths (flatten), -n = don't overwrite
         cmd = ["unzip", "-j", "-n", "-q", zip_path, "-d", self.target_dir]
         try:
             subprocess.run(cmd, check=True)
-            print(f"[{time.strftime('%H:%M:%S')}] SUCCESS: {base} extracted. Deleting ZIP...")
+            self.log_activity(f"Successfully extracted {base}. Deleting ZIP...", "success")
             os.remove(zip_path)
         except Exception as e:
-            print(f"[{time.strftime('%H:%M:%S')}] ERROR: Failed to extract {base}: {e}")
+            self.log_activity(f"Failed to extract {base}: {e}", "error")
 
 def start_aria2():
     print("Checking port 6806...")
