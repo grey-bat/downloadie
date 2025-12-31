@@ -1,18 +1,22 @@
 #!/bin/bash
 aria2c \
-  -i /Users/greg/.gemini/antigravity/scratch/urls_direct.txt \
+  -i /Users/greg/.gemini/antigravity/scratch/urls_with_rapt.txt \
   -d /Volumes/Backup/photos \
-  -j 16 \
+  -j 3 \
   -x 16 \
   -s 16 \
+  --stream-piece-selector=random \
   --min-split-size=1M \
+  --connect-timeout=10 \
+  --timeout=30 \
   -c \
-  --file-allocation=none \
-  --retry-wait=10 \
+  --file-allocation=prealloc \
+  --retry-wait=5 \
   --max-tries=0 \
-  --summary-interval=60 \
+  --summary-interval=30 \
   --log=aria2.log \
   --log-level=notice \
+  --load-cookies=/Users/greg/.gemini/antigravity/scratch/cookies.txt \
   --header="accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" \
   --header="accept-language: en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7,es-AR;q=0.6,es;q=0.5" \
   --header="dnt: 1" \
@@ -30,5 +34,4 @@ aria2c \
   --header="x-browser-copyright: Copyright 2025 Google LLC. All Rights reserved." \
   --header="x-browser-validation: AUXUCdutEJ+6gl6bYtz7E2kgIT4=" \
   --header="x-browser-year: 2025" \
-  --header="x-client-data: CPeNywE=" \
-  --header="Cookie: SEARCH_SAMESITE=CgQI5Z8B; AEC=AaJma5suFi6BaU6aB8xSntRxV-we0IqP2kc5rNlCaogjtzpH8wHE4f5dZg; __Secure-BUCKET=CPcE; __Secure-1PSIDTS=sidts-CjIBflaCdU5ZTcCkNI9wG6F8XIrysZluuTsYIPhb8i01xmVU1rMTIuv_W-ZP7a9QgjSaJBAA; __Secure-3PSIDTS=sidts-CjIBflaCdU5ZTcCkNI9wG6F8XIrysZluuTsYIPhb8i01xmVU1rMTIuv_W-ZP7a9QgjSaJBAA; NID=527=h71vzJ4Zhald3YLoVKD9w4_g89_5baQHUUTAIaDNcsFvUkso6nZRwkD7ojh-28tCuPZRFreIXui5_QwywZXagY8B0iRH6gOKejZavhp77ZYRFIryYdpH2HAqpyMwz4l30ZiVZJVJdzWWkFE-htpGw0QQFK2P7KkCx0u65Gf86vFCZ5ErPc16Ed1kqxMi0tH-mBFsFUSjnakYXA30TrjxWa0Uu603M0BY6MyVs8TSF7YLnfZfoWdycxTFvI1yk9wi6vJouhKr6SyrhXqgDnBIbhq3_d4qvwsDNh0FaTwBoozfWOee3YMO4jtgG7xkWROLrVL_XfpCjSaTFhxu53pk_xPd6LlEmWj9v8Qg6QzCAXsRVR_k9zo0iN2O8glqbyem8OOErjfvXptM1YiF-mV77FlzbYcuMKfW47vs9LJoAzmXZs20l7q-z_4KLX_4_d0KCOGYzdoMe3NYJAvE7jg_8jCZpgQA6V7gQQQG9UVCOXQEekZfHncARkfcuQwAdEOLbCpm1GuJSm8KGrp8QonOh3NSUeUTc-HVtYTu3RqnGB2fbfCtLyglXSzpsuLDdepZMcUGpoKKWZLoPkRcVl_UfXimNsL6831aImhpkV8P2rZ10RmZeA2C59uvcKzWcbXv5PeJbojt7xaoouWI9bF4Njj6l0dediQI3oSwc03wDlxitSZ-v2V8WWJws6uGCXmTmSqbjSunx8dcKTEKIQmmJscPs4U2ouQWOOT343GK-PwO; SID=g.a0005AiqAvD4xfLldEQn75You1-GEPVB4hC-S9E3gljmvLfvyaaMCS2WCiuWwc1COvkZ_ggaEQACgYKAUESARUSFQHGX2MigPf0RvERpFLLU6cBmz4VQxoVAUF8yKo9yMHy_yD9BvZcsXxqHqH70076; __Secure-1PSID=g.a0005AiqAvD4xfLldEQn75You1-GEPVB4hC-S9E3gljmvLfvyaaMJvp0LpVqDYBpGdrriVzFyQACgYKAcsSARUSFQHGX2MiPD5PhCpk-sitVumZRLMAThoVAUF8yKqk5W3hPLV_zrpE0Nhod4Be0076; __Secure-3PSID=g.a0005AiqAvD4xfLldEQn75You1-GEPVB4hC-S9E3gljmvLfvyaaMhEXTkfNOJ4Q12NMv_et8KgACgYKAWsSARUSFQHGX2Mi80y4bFwTMXrEbdb6iD3ZsRoVAUF8yKpPhgZ4qMU0GE7hDBObd5lm0076; HSID=ACMGn5wAxdGyEdbBP; SSID=A1AbJeHCX9P1t3dnw; APISID=wyOEHOXOsW9WCc97/A_busfOas4RUomse3; SAPISID=S5RHC1ZyrDlzzbSa/AG4M74zMSCAl8DA-H; __Secure-1PAPISID=S5RHC1ZyrDlzzbSa/AG4M74zMSCAl8DA-H; __Secure-3PAPISID=S5RHC1ZyrDlzzbSa/AG4M74zMSCAl8DA-H; SIDCC=AKEyXzUehSDd_wh_p8PN8U8d-5k5YB6xqkiOFyeELVeIb5npNGpLrtgxOV8eYE_Ofk24-ox5hj8; __Secure-1PSIDCC=AKEyXzUczi4XeHsNa7zUjE2ViPRkNSm0-KSQ3KcbO9muSBWD-JK6mKMr3RqO_JUJkhA0L9BVKw; __Secure-3PSIDCC=AKEyXzWKyT_U6PAFGz7Bhx2BA-BLrSis_pW7fF-HbKwOXcMDOqEYv6X6dhdVlPeFfXUTA0eAmgs"
+  --header="x-client-data: CPeNywE="

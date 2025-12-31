@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.takeout.downloader</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/greg/.gemini/antigravity/scratch/Run_Takeout_Downloader.command</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <false/>
+    <key>StandardOutPath</key>
+    <string>/Users/greg/.gemini/antigravity/scratch/launchagent.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/greg/.gemini/antigravity/scratch/launchagent.log</string>
+</dict>
+</plist>
