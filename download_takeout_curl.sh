@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Directory for downloads
+OUTPUT_DIR="/Volumes/Backup/photos"
+mkdir -p "$OUTPUT_DIR"
+cd "$OUTPUT_DIR"
+
+# Function to download a single URL
+download_file() {
+  url="$1"
+  echo "Starting download for: $url"
+  
+  # Curl command derived from user input
+  # Added -J -O to save file with correct name from Content-Disposition header
+  # Added -f to fail silently on HTTP errors (so xargs knows it failed)
+  # Added -C - to continue/resume download
+  # Added --retry 10 --retry-delay 5 for robustness
+  
+  curl "$url" \
+  -J -O \
+  -f \
+  -C - \
+  --retry 10 \
+  --retry-delay 5 \
+  -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
+  -H 'accept-language: en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7,es-AR;q=0.6,es;q=0.5' \
+  -b 'SEARCH_SAMESITE=CgQI5Z8B; AEC=AaJma5suFi6BaU6aB8xSntRxV-we0IqP2kc5rNlCaogjtzpH8wHE4f5dZg; __Secure-BUCKET=CPcE; OTZ=8414812_68_64_73560_68_416340; __Secure-1PSIDTS=sidts-CjIBflaCdU5ZTcCkNI9wG6F8XIrysZluuTsYIPhb8i01xmVU1rMTIuv_W-ZP7a9QgjSaJBAA; __Secure-3PSIDTS=sidts-CjIBflaCdU5ZTcCkNI9wG6F8XIrysZluuTsYIPhb8i01xmVU1rMTIuv_W-ZP7a9QgjSaJBAA; NID=527=h71vzJ4Zhald3YLoVKD9w4_g89_5baQHUUTAIaDNcsFvUkso6nZRwkD7ojh-28tCuPZRFreIXui5_QwywZXagY8B0iRH6gOKejZavhp77ZYRFIryYdpH2HAqpyMwz4l30ZiVZJVJdzWWkFE-htpGw0QQFK2P7KkCx0u65Gf86vFCZ5ErPc16Ed1kqxMi0tH-mBFsFUSjnakYXA30TrjxWa0Uu603M0BY6MyVs8TSF7YLnfZfoWdycxTFvI1yk9wi6vJouhKr6SyrhXqgDnBIbhq3_d4qvwsDNh0FaTwBoozfWOee3YMO4jtgG7xkWROLrVL_XfpCjSaTFhxu53pk_xPd6LlEmWj9v8Qg6QzCAXsRVR_k9zo0iN2O8glqbyem8OOErjfvXptM1YiF-mV77FlzbYcuMKfW47vs9LJoAzmXZs20l7q-z_4KLX_4_d0KCOGYzdoMe3NYJAvE7jg_8jCZpgQA6V7gQQQG9UVCOXQEekZfHncARkfcuQwAdEOLbCpm1GuJSm8KGrp8QonOh3NSUeUTc-HVtYTu3RqnGB2fbfCtLyglXSzpsuLDdepZMcUGpoKKWZLoPkRcVl_UfXimNsL6831aImhpkV8P2rZ10RmZeA2C59uvcKzWcbXv5PeJbojt7xaoouWI9bF4Njj6l0dediQI3oSwc03wDlxitSZ-v2V8WWJws6uGCXmTmSqbjSunx8dcKTEKIQmmJscPs4U2ouQWOOT343GK-PwO; SID=g.a0005AiqAvD4xfLldEQn75You1-GEPVB4hC-S9E3gljmvLfvyaaMCS2WCiuWwc1COvkZ_ggaEQACgYKAUESARUSFQHGX2MigPf0RvERpFLLU6cBmz4VQxoVAUF8yKo9yMHy_yD9BvZcsXxqHqH70076; __Secure-1PSID=g.a0005AiqAvD4xfLldEQn75You1-GEPVB4hC-S9E3gljmvLfvyaaMJvp0LpVqDYBpGdrriVzFyQACgYKAcsSARUSFQHGX2MiPD5PhCpk-sitVumZRLMAThoVAUF8yKqk5W3hPLV_zrpE0Nhod4Be0076; __Secure-3PSID=g.a0005AiqAvD4xfLldEQn75You1-GEPVB4hC-S9E3gljmvLfvyaaMhEXTkfNOJ4Q12NMv_et8KgACgYKAWsSARUSFQHGX2Mi80y4bFwTMXrEbdb6iD3ZsRoVAUF8yKpPhgZ4qMU0GE7hDBObd5lm0076; HSID=ACMGn5wAxdGyEdbBP; SSID=A1AbJeHCX9P1t3dnw; APISID=wyOEHOXOsW9WCc97/A_busfOas4RUomse3; SAPISID=S5RHC1ZyrDlzzbSa/AG4M74zMSCAl8DA-H; __Secure-1PAPISID=S5RHC1ZyrDlzzbSa/AG4M74zMSCAl8DA-H; __Secure-3PAPISID=S5RHC1ZyrDlzzbSa/AG4M74zMSCAl8DA-H; OSID=g.a0005AiqAskMgFNBuRzet7QXt_W_ZSeqrwMw7m-dkOMGC8OnP72kxTPZFEpYJY4iV1vW0uopnQACgYKAbwSARUSFQHGX2MiLHQ_qwxZHzRRlQt1898QFhoVAUF8yKoqkkV9XC-xc_XdOuzJ9nHE0076; __Secure-OSID=g.a0005AiqAskMgFNBuRzet7QXt_W_ZSeqrwMw7m-dkOMGC8OnP72kCTvFAOPI4D0kNaLheMiMBgACgYKAYUSARUSFQHGX2MiJVXGhATPBzNCbI9xfRdcoBoVAUF8yKqud4zR8-2Y-SIs0En5zM4H0076; SIDCC=AKEyXzUw0ZVbvJdXzxkX4zZB3XdS2bbYqKGwbW4ul-38C8YNrmncmTCWBDM4eMIyU-WLFLOl7Qo; __Secure-1PSIDCC=AKEyXzVIRkgfLHWrucbcGJq58LQ7i3kCBbQBkgd87EXAzoWNB70_mSCjTRPp4ubsFt_QHY7DPg; __Secure-3PSIDCC=AKEyXzWAhnIMeeODTHrnaVAGE3OZoryi--Y8uqQH0H8LlGPBzQiaKQ8_P1rqHRzqiEvCbHMzPyc' \
+  -H 'dnt: 1' \
+  -H 'priority: u=0, i' \
+  -H 'referer: https://takeout.google.com/manage/archive/200b2e41-9ad6-44d0-9a9a-321ede1de4d8?user=101514084415461963913&rapt=AEjHL4PFkWBn6HlJHzNFWtSM4gcH0SybKnxyYjL5U-eo8EEBpQh2CdlonbLWe1rXEqgxB1FLuWGS5VMFpUge2MXLZws2xmCr-dYsiZdj2ABSljTsfK9FbIc' \
+  -H 'sec-ch-ua: "Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"' \
+  -H 'sec-ch-ua-arch: "arm"' \
+  -H 'sec-ch-ua-bitness: "64"' \
+  -H 'sec-ch-ua-form-factors: "Desktop"' \
+  -H 'sec-ch-ua-full-version: "143.0.7499.170"' \
+  -H 'sec-ch-ua-full-version-list: "Google Chrome";v="143.0.7499.170", "Chromium";v="143.0.7499.170", "Not A(Brand";v="24.0.0.0"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-model: ""' \
+  -H 'sec-ch-ua-platform: "macOS"' \
+  -H 'sec-ch-ua-platform-version: "26.2.0"' \
+  -H 'sec-ch-ua-wow64: ?0' \
+  -H 'sec-fetch-dest: document' \
+  -H 'sec-fetch-mode: navigate' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'sec-fetch-user: ?1' \
+  -H 'upgrade-insecure-requests: 1' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36' \
+  -H 'x-browser-channel: stable' \
+  -H 'x-browser-copyright: Copyright 2025 Google LLC. All Rights reserved.' \
+  -H 'x-browser-validation: AUXUCdutEJ+6gl6bYtz7E2kgIT4=' \
+  -H 'x-browser-year: 2025' \
+  -H 'x-client-data: CPeNywE='
+
+}
+
+export -f download_file
+
+# Use xargs to run downloads in parallel
+# -P 5 = 5 parallel processes
+# -n 1 = 1 argument (url) per process
+cat /Users/greg/.gemini/antigravity/scratch/urls.txt | xargs -n 1 -P 5 -I {} bash -c 'download_file "$@"' _ {}

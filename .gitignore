@@ -1,0 +1,7 @@
+cookies.txt
+curl_command.txt
+urls_with_rapt.txt
+urls_direct.txt
+*.aria2
+*.zip
+.DS_Store
