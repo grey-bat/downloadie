@@ -1,0 +1,526 @@
+[19:13:24] Log: Sequential extraction worker started (one ZIP at a time).
+[19:13:24] Log: System initialized. Monitoring /Volumes/Backup/downloads for ZIPs.
+
+12/31 19:13:25 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:13:25 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:13:25 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:13:25 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:13:25 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+Opening Dashboard...
+
+Takeout Turbo is running!
+Photos will be flattened to: /Volumes/Backup/downloads
+Press Ctrl+C to stop.
+Checking port 6859...
+Starting aria2c...
+[19:13:27] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout2.zip
+[19:13:27] Log: Queued for extraction: takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout3.zip
+[19:13:27] Log: Queued for extraction: takeout3.zip
+[19:13:27] Log: Checking takeout2.zip contents...
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:13:28] Log: Worker error extracting takeout2.zip: 'utf-8' codec can't decode byte 0xa6 in position 904434: invalid start byte
+[19:13:29] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:13:29] Log: Checking takeout3.zip contents...
+[19:13:30] Log: Worker error extracting takeout3.zip: 'utf-8' codec can't decode byte 0xa6 in position 55062: invalid start byte
+
+12/31 19:13:46 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:13:46 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:13:46 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:13:46 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:13:46 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:13:41] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:13:48] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:13:50] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:14:07 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:14:07 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:14:07 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:14:07 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:14:07 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:14:02] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:14:09] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:14:11] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:14:28 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:14:28 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:14:28 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:14:28 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:14:28 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:14:23] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:14:30] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:14:32] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:14:49 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:14:49 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:14:49 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:14:49 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:14:49 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:14:44] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:14:51] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:14:53] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:15:10 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:15:10 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:15:10 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:15:10 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:15:10 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:15:05] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:15:12] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:15:14] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:15:32 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:15:32 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:15:32 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:15:32 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:15:32 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:15:26] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:15:34] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:15:36] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:15:53 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:15:53 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:15:53 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:15:53 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:15:53 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:15:48] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:15:55] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:15:57] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:16:14 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:16:14 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:16:14 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:16:14 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:16:14 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:16:09] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:16:16] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:16:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:16:35 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:16:35 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:16:35 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:16:35 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:16:35 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:16:30] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:16:37] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:16:39] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:16:56 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:16:56 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:16:56 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:16:56 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:16:56 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:16:51] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:16:58] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:17:00] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:17:17 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:17:17 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:17:17 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:17:17 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:17:17 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:17:12] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:17:19] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:17:21] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:17:38 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:17:38 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:17:38 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:17:38 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:17:38 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:17:33] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:17:40] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:17:42] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:18:00 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:18:00 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:18:00 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:18:00 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:18:00 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:17:54] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:18:02] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:18:04] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:18:21 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:18:21 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:18:21 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:18:21 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:18:21 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:18:16] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:18:23] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:18:25] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+
+12/31 19:18:42 [[1;32mNOTICE[0m] Downloading 114 item(s)
+
+12/31 19:18:42 [[1;33mWARN[0m] Neither --rpc-secret nor a combination of --rpc-user and --rpc-passwd is set. This is insecure. It is extremely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.
+
+12/31 19:18:42 [[1;31mERROR[0m] IPv4 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:18:42 [[1;31mERROR[0m] IPv6 RPC: failed to bind TCP port 6859
+Exception: [SocketCore.cc:312] errorCode=1 Failed to bind a socket, cause: Address already in use
+
+12/31 19:18:42 [[1;31mERROR[0m] Exception caught
+Exception: [DownloadEngineFactory.cc:219] errorCode=1 Failed to setup RPC server.
+[19:18:37] aria2c process exited with code 1. Restarting in 5s...
+Checking port 6859...
+Starting aria2c...
+[19:18:44] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip
+[19:18:46] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 217 items
+  Disk: Found ZIP takeout1.zip but .aria2 exists
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found ZIP takeout4.zip but .aria2 exists
+  Disk: Found ZIP takeout5.zip but .aria2 exists
+  Disk: Found completed ZIP test_verification.zip

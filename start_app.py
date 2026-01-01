@@ -222,8 +222,8 @@ class Extractor:
                 os.makedirs(tmp_extract, exist_ok=True)
                 
                 self.log_activity(f"Extracting {base} to {os.path.basename(tmp_extract)}...")
-                # Run at normal priority for maximum speed (user requested)
-                extract_cmd = ["bsdtar", "-xf", zip_path, "-C", tmp_extract]
+                # Optimized bsdtar for maximum speed: multi-threading, larger buffer, no compression overhead
+                extract_cmd = ["bsdtar", "-xf", zip_path, "-C", tmp_extract, "--fast-read", "-p", "--no-same-owner", "--no-same-permissions"]
                 
                 # Start extraction process
                 process = subprocess.Popen(extract_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)

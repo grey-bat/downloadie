@@ -1,0 +1,74 @@
+[00:48:18] Download complete: GID=ba3022c58ab7ad00, Files=1, Path=/Users/greg/takeout_cache/takeout11.zip.part
+[00:48:18] Pausing downloads during move...
+[00:48:18] Moving /Users/greg/takeout_cache/takeout11.zip.part to /Volumes/Backup/downloads/takeout11.zip
+[01:01:42] Download complete: GID=d373fcbda758978a, Files=1, Path=/Users/greg/takeout_cache/takeout11.zip.part
+[01:01:42] Pausing downloads and extraction during move...
+[01:01:42] Moving /Users/greg/takeout_cache/takeout11.zip.part to /Volumes/Backup/downloads/takeout11.zip
+[01:31:49] Move successful: /Volumes/Backup/downloads/takeout11.zip
+[01:31:49] Verifying SSD cache is clear...
+[01:31:51] Move failed: log() takes 1 positional argument but 2 were given
+[02:07:55] Download complete: GID=bd4cb77ecb9c8a00, Files=1, Path=/Users/greg/takeout_cache/takeout11.zip.part
+[02:07:55] Pausing downloads and extraction during move...
+[02:07:55] Moving /Users/greg/takeout_cache/takeout11.zip.part to /Volumes/Backup/downloads/takeout11.zip
+[02:08:06] Download complete: GID=e13596dbc42463b8, Files=1, Path=/Users/greg/takeout_cache/takeout11.zip.part
+[02:08:06] Pausing downloads and extraction during move...
+[02:08:06] Moving /Users/greg/takeout_cache/takeout11.zip.part to /Volumes/Backup/downloads/takeout11.zip
+[02:12:03] Download complete: GID=f101983b54e703fa, Files=1, Path=/Users/greg/takeout_cache/takeout11.zip.part
+[02:12:03] Pausing downloads and extraction during move...
+[02:12:03] Moving /Users/greg/takeout_cache/takeout11.zip.part to /Volumes/Backup/downloads/takeout11.zip
+[02:12:05] Move successful: /Volumes/Backup/downloads/takeout11.zip
+[02:12:05] Verifying SSD cache is clear...
+[02:12:07] SSD still occupied by ['takeout11.zip.part', 'takeout12.zip.part']. Keeping paused for safety.
+[02:13:00] Download complete: GID=5d73b8eaf9605335, Files=1, Path=/Users/greg/takeout_cache/takeout11.zip.part
+[02:13:00] Pausing extraction during move...
+[02:13:00] Moving /Users/greg/takeout_cache/takeout11.zip.part to /Volumes/Backup/downloads/takeout11.zip
+[02:13:02] Move successful: /Volumes/Backup/downloads/takeout11.zip
+[02:13:02] Verifying SSD cache is clear...
+[02:13:04] SSD still occupied by ['takeout11.zip.part', 'takeout12.zip.part']. Keeping paused for safety.
+[02:13:15] Download complete: GID=1702182d4734d20d, Files=1, Path=/Users/greg/takeout_cache/takeout11.zip.part
+[02:13:15] Pausing extraction during move...
+[02:13:15] Moving /Users/greg/takeout_cache/takeout11.zip.part to /Volumes/Backup/downloads/takeout11.zip
+[02:13:17] Move successful: /Volumes/Backup/downloads/takeout11.zip
+[02:13:17] Verifying SSD cache is clear...
+[02:13:19] SSD still occupied by ['takeout11.zip.part', 'takeout12.zip.part']. Keeping paused for safety.
+[02:15:42] Download complete: GID=f19361c8adb4559e, Files=1, Path=/Users/greg/takeout_cache/takeout11.zip.part
+[02:15:42] Pausing extraction during move...
+[02:15:42] Interlocking bsdtar PID 14731 (Signal + TaskPolicy)
+[02:15:42] Moving /Users/greg/takeout_cache/takeout11.zip.part to /Volumes/Backup/downloads/takeout11.zip
+[02:15:44] Move successful: /Volumes/Backup/downloads/takeout11.zip
+[02:15:44] Resuming bsdtar PID 14731
+[02:15:44] Verifying SSD cache is clear...
+[02:15:46] SSD still occupied by ['takeout11.zip.part', 'takeout12.zip.part']. Keeping paused for safety.
+[02:16:20] Download complete: GID=3b57ebe5c3a17c6f, Files=1, Path=/Users/greg/takeout_cache/takeout11.zip.part
+[02:16:20] Pausing extraction during move...
+[02:16:20] Moving /Users/greg/takeout_cache/takeout11.zip.part to /Volumes/Backup/downloads/takeout11.zip
+[02:16:22] Move successful: /Volumes/Backup/downloads/takeout11.zip
+[02:16:22] Verifying SSD cache is clear...
+[02:16:24] SSD still occupied by ['takeout11.zip.part', 'takeout12.zip.part']. Keeping paused for safety.
+[02:17:23] Download complete: GID=c5d2bc5248523b70, Files=1, Path=/Users/greg/takeout_cache/takeout11.zip.part
+[02:17:23] Pausing extraction during move...
+[02:17:23] Moving /Users/greg/takeout_cache/takeout11.zip.part to /Volumes/Backup/downloads/takeout11.zip
+[02:17:25] Move successful: /Volumes/Backup/downloads/takeout11.zip
+[02:17:25] Verifying SSD cache is clear...
+[02:17:27] SSD still occupied by ['takeout11.zip.part', 'takeout12.zip.part']. Keeping paused for safety.
+[04:45:18] Download complete: GID=f7d2bdd1cfc4a557, Files=1, Path=/Users/greg/takeout_cache/takeout11.zip.part
+[04:45:18] Pausing extraction during move...
+[04:45:18] Pausing bsdtar PID 33408
+[04:45:18] Moving /Users/greg/takeout_cache/takeout11.zip.part to /Volumes/Backup/downloads/takeout11.zip
+[05:08:51] Move successful: /Volumes/Backup/downloads/takeout11.zip
+[05:08:51] Resuming bsdtar PID 33408
+[05:08:51] Verifying SSD cache is clear...
+[05:08:53] SSD still occupied by ['takeout69.zip.part', 'takeout12.zip.part']. Keeping paused for safety.
+[05:12:24] Download complete: GID=e9c9468871b2ee02, Files=1, Path=/Users/greg/takeout_cache/takeout12.zip.part
+[05:12:24] Pausing extraction during move...
+[05:12:24] Pausing bsdtar PID 39070
+[05:12:24] Moving /Users/greg/takeout_cache/takeout12.zip.part to /Volumes/Backup/downloads/takeout12.zip
+[05:38:35] Move successful: /Volumes/Backup/downloads/takeout12.zip
+[05:38:35] Resuming bsdtar PID 39070
+[05:38:35] Move failed: [Errno 3] No such process
+[06:05:38] Download complete: GID=3f43197c649e8bc1, Files=1, Path=/Users/greg/takeout_cache/takeout23.zip.part
+[06:05:38] Pausing extraction during move...
+[06:05:38] Moving /Users/greg/takeout_cache/takeout23.zip.part to /Volumes/Backup/downloads/takeout23.zip
+[06:23:53] Move successful: /Volumes/Backup/downloads/takeout23.zip
+[06:23:53] Verifying SSD cache is clear...
+[06:23:55] SSD still occupied by ['takeout13.zip.part.aria2__temp', 'takeout24.zip.part', 'takeout69.zip.part', 'takeout14.zip.part', 'takeout13.zip.part']. Keeping paused for safety.

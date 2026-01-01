@@ -1,0 +1,2036 @@
+HTTP server started on port 6860, serving /Users/greg/.gemini/antigravity/scratch
+[10:59:16] Log: Sequential extraction worker started (one ZIP at a time).
+[10:59:16] Log: System initialized. Monitoring /Volumes/Backup/downloads for ZIPs.
+DEBUG: Writing status=IDLE (final=None, active=None)
+
+Takeout Turbo is running!
+Photos will be flattened to: /Volumes/Backup/downloads
+Press Ctrl+C to stop.
+[10:59:16] Starting aria2c with SSD cache: /Users/greg/takeout_cache
+[10:59:16] Background cleanup thread started...
+[10:59:16] Launching aria2c...
+  SSD has 144GB effective free. Using SSD cache.
+[10:59:16] Background cleanup complete.
+[10:59:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout1.zip
+[10:59:18] Log: Queued for extraction: takeout1.zip
+[10:59:18] Log: Checking takeout1.zip contents...
+  Disk: Found completed ZIP takeout10.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout10.zip
+[10:59:18] Log: Queued for extraction: takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout11.zip
+[10:59:18] Log: Queued for extraction: takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout12.zip
+[10:59:18] Log: Queued for extraction: takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout2.zip
+[10:59:18] Log: Queued for extraction: takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout23.zip
+[10:59:18] Log: Queued for extraction: takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout3.zip
+[10:59:18] Log: Queued for extraction: takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout4.zip
+[10:59:18] Log: Queued for extraction: takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout5.zip
+[10:59:18] Log: Queued for extraction: takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout6.zip
+[10:59:18] Log: Queued for extraction: takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout7.zip
+[10:59:18] Log: Queued for extraction: takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout8.zip
+[10:59:18] Log: Queued for extraction: takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+!!! QUEUEING: /Volumes/Backup/downloads/takeout9.zip
+[10:59:18] Log: Queued for extraction: takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+!!! QUEUEING: /Volumes/Backup/downloads/test_verification.zip
+[10:59:18] Log: Queued for extraction: test_verification.zip
+[10:59:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[10:59:18] Log: Extracting takeout1.zip to _tmp_takeout1.zip_1767275958...
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[10:59:28] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 10:59:32] "GET /activity.json?t=1767275972952 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:32] "GET /status.json?t=1767275972954 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 10:59:34] "GET /activity.json?t=1767275974835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:34] "GET /status.json?t=1767275974836 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:36] "GET /status.json?t=1767275976834 HTTP/1.1" 200 -
+[10:59:38] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 10:59:38] "GET /status.json?t=1767275978835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:39] "GET /activity.json?t=1767275979835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:40] "GET /status.json?t=1767275980835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:43] "GET /status.json?t=1767275983488 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:44] "GET /activity.json?t=1767275984834 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:44] "GET /status.json?t=1767275984834 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:46] "GET /status.json?t=1767275986835 HTTP/1.1" 200 -
+[10:59:48] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 10:59:48] "GET /status.json?t=1767275988835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:49] "GET /activity.json?t=1767275989836 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:50] "GET /status.json?t=1767275990835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:52] "GET /status.json?t=1767275992836 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:54] "GET /activity.json?t=1767275994835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:54] "GET /status.json?t=1767275994836 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 10:59:57] "GET /status.json?t=1767275997489 HTTP/1.1" 200 -
+[10:59:58] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 10:59:59] "GET /status.json?t=1767275999490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:00] "GET /activity.json?t=1767276000489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:01] "GET /status.json?t=1767276001488 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:00:03] "GET /status.json?t=1767276003489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:05] "GET /activity.json?t=1767276005492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:05] "GET /status.json?t=1767276005492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:07] "GET /status.json?t=1767276007489 HTTP/1.1" 200 -
+[11:00:08] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:00:09] "GET /status.json?t=1767276009493 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:10] "GET /activity.json?t=1767276010488 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:11] "GET /status.json?t=1767276011491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:13] "GET /status.json?t=1767276013490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:15] "GET /activity.json?t=1767276015489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:15] "GET /status.json?t=1767276015489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:17] "GET /status.json?t=1767276017491 HTTP/1.1" 200 -
+[11:00:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:00:19] "GET /status.json?t=1767276019489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:20] "GET /activity.json?t=1767276020492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:21] "GET /status.json?t=1767276021489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:23] "GET /status.json?t=1767276023493 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:25] "GET /activity.json?t=1767276025488 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:25] "GET /status.json?t=1767276025489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:27] "GET /status.json?t=1767276027488 HTTP/1.1" 200 -
+[11:00:28] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:00:29] "GET /status.json?t=1767276029490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:30] "GET /activity.json?t=1767276030488 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:31] "GET /status.json?t=1767276031487 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:00:33] "GET /status.json?t=1767276033490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:35] "GET /activity.json?t=1767276035496 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:35] "GET /status.json?t=1767276035496 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:37] "GET /status.json?t=1767276037489 HTTP/1.1" 200 -
+[11:00:38] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:00:39] "GET /status.json?t=1767276039489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:40] "GET /activity.json?t=1767276040489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:41] "GET /status.json?t=1767276041490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:43] "GET /status.json?t=1767276043489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:45] "GET /activity.json?t=1767276045488 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:45] "GET /status.json?t=1767276045489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:47] "GET /status.json?t=1767276047490 HTTP/1.1" 200 -
+[11:00:48] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:00:49] "GET /status.json?t=1767276049489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:50] "GET /activity.json?t=1767276050491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:50] "GET /status.json?t=1767276050943 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:52] "GET /status.json?t=1767276052834 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:54] "GET /activity.json?t=1767276054835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:54] "GET /status.json?t=1767276054835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:56] "GET /status.json?t=1767276056835 HTTP/1.1" 200 -
+[11:00:58] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:00:58] "GET /status.json?t=1767276058836 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:00:59] "GET /activity.json?t=1767276059834 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:00] "GET /status.json?t=1767276060835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:02] "GET /status.json?t=1767276062835 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:01:04] "GET /activity.json?t=1767276064835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:04] "GET /status.json?t=1767276064835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:07] "GET /status.json?t=1767276067489 HTTP/1.1" 200 -
+[11:01:08] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:01:09] "GET /status.json?t=1767276069492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:10] "GET /activity.json?t=1767276070487 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:11] "GET /status.json?t=1767276071490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:13] "GET /status.json?t=1767276073489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:15] "GET /activity.json?t=1767276075488 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:15] "GET /status.json?t=1767276075489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:17] "GET /status.json?t=1767276077492 HTTP/1.1" 200 -
+[11:01:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:01:19] "GET /status.json?t=1767276079489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:20] "GET /activity.json?t=1767276080489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:21] "GET /status.json?t=1767276081488 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:23] "GET /status.json?t=1767276083491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:25] "GET /activity.json?t=1767276085487 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:25] "GET /status.json?t=1767276085488 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:27] "GET /status.json?t=1767276087489 HTTP/1.1" 200 -
+[11:01:28] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:01:29] "GET /status.json?t=1767276089490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:30] "GET /activity.json?t=1767276090488 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:31] "GET /status.json?t=1767276091488 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:01:33] "GET /status.json?t=1767276093489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:35] "GET /activity.json?t=1767276095491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:35] "GET /status.json?t=1767276095491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:37] "GET /status.json?t=1767276097489 HTTP/1.1" 200 -
+[11:01:38] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:01:39] "GET /status.json?t=1767276099488 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:40] "GET /activity.json?t=1767276100489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:41] "GET /status.json?t=1767276101490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:43] "GET /status.json?t=1767276103489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:45] "GET /activity.json?t=1767276105487 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:45] "GET /status.json?t=1767276105488 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:47] "GET /status.json?t=1767276107490 HTTP/1.1" 200 -
+[11:01:48] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:01:49] "GET /status.json?t=1767276109489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:50] "GET /activity.json?t=1767276110141 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:50] "GET /status.json?t=1767276110835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:52] "GET /status.json?t=1767276112837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:54] "GET /activity.json?t=1767276114835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:54] "GET /status.json?t=1767276114836 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:56] "GET /status.json?t=1767276116836 HTTP/1.1" 200 -
+[11:01:58] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:01:58] "GET /status.json?t=1767276118836 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:01:59] "GET /activity.json?t=1767276119835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:01] "GET /status.json?t=1767276121489 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:02:03] "GET /status.json?t=1767276123489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:05] "GET /activity.json?t=1767276125490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:05] "GET /status.json?t=1767276125490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:07] "GET /status.json?t=1767276127488 HTTP/1.1" 200 -
+[11:02:08] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:02:09] "GET /status.json?t=1767276129494 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:10] "GET /activity.json?t=1767276130491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:11] "GET /status.json?t=1767276131489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:13] "GET /status.json?t=1767276133488 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:15] "GET /activity.json?t=1767276135489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:15] "GET /status.json?t=1767276135489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:17] "GET /status.json?t=1767276137491 HTTP/1.1" 200 -
+[11:02:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:02:19] "GET /status.json?t=1767276139489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:20] "GET /activity.json?t=1767276140489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:21] "GET /status.json?t=1767276141488 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:23] "GET /status.json?t=1767276143491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:24] "GET /activity.json?t=1767276144835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:24] "GET /status.json?t=1767276144838 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:26] "GET /status.json?t=1767276146835 HTTP/1.1" 200 -
+[11:02:28] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:02:28] "GET /status.json?t=1767276148836 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:29] "GET /activity.json?t=1767276149835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:30] "GET /status.json?t=1767276150835 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:33] "GET /status.json?t=1767276153490 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:02:35] "GET /activity.json?t=1767276155522 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:35] "GET /status.json?t=1767276155522 HTTP/1.1" 200 -
+[11:02:38] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:02:38] "GET /status.json?t=1767276158421 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:40] "GET /status.json?t=1767276160362 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:40] "GET /activity.json?t=1767276160527 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:41] "GET /status.json?t=1767276161500 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:43] "GET /status.json?t=1767276163786 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:45] "GET /activity.json?t=1767276165492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:45] "GET /status.json?t=1767276165493 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:47] "GET /status.json?t=1767276167498 HTTP/1.1" 200 -
+[11:02:48] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:02:49] "GET /status.json?t=1767276169492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:50] "GET /activity.json?t=1767276170490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:51] "GET /status.json?t=1767276171573 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:53] "GET /status.json?t=1767276173532 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:55] "GET /activity.json?t=1767276175494 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:55] "GET /status.json?t=1767276175495 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:02:57] "GET /status.json?t=1767276177492 HTTP/1.1" 200 -
+[11:02:58] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:02:59] "GET /status.json?t=1767276179502 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:00] "GET /activity.json?t=1767276180489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:01] "GET /status.json?t=1767276181499 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:03] "GET /status.json?t=1767276183492 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:03:05] "GET /activity.json?t=1767276185721 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:05] "GET /status.json?t=1767276185722 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:07] "GET /status.json?t=1767276187627 HTTP/1.1" 200 -
+[11:03:08] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:03:09] "GET /status.json?t=1767276189543 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:10] "GET /activity.json?t=1767276190500 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:11] "GET /status.json?t=1767276191566 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:13] "GET /status.json?t=1767276193581 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:15] "GET /activity.json?t=1767276195489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:15] "GET /status.json?t=1767276195493 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:17] "GET /status.json?t=1767276197491 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:03:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:03:19] "GET /status.json?t=1767276199489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:20] "GET /activity.json?t=1767276200490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:21] "GET /status.json?t=1767276201489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:23] "GET /status.json?t=1767276203490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:25] "GET /activity.json?t=1767276205490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:25] "GET /status.json?t=1767276205490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:27] "GET /status.json?t=1767276207489 HTTP/1.1" 200 -
+[11:03:28] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:03:29] "GET /status.json?t=1767276209491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:30] "GET /activity.json?t=1767276210489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:03:31] "GET /status.json?t=1767276211488 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:03:38] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:03:48] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:03:58] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:04:08] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:04:09] "GET /status.json?t=1767276249504 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:04:09] "GET /activity.json?t=1767276249504 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:04:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:04:28] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:04:38] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:04:48] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:04:58] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:05:08] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:05:09] "GET /activity.json?t=1767276309495 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:05:09] "GET /status.json?t=1767276309518 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:05:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:05:28] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:05:38] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:05:48] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:05:58] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:06:08] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:06:09] "GET /activity.json?t=1767276369489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:06:09] "GET /status.json?t=1767276369504 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:06:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:06:28] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:06:38] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:06:48] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:06:58] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:07:08] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:07:09] "GET /activity.json?t=1767276429497 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:07:09] "GET /status.json?t=1767276429498 HTTP/1.1" 200 -
+[11:07:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:07:28] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:07:38] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:07:48] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:08:00] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:08:09] "GET /activity.json?t=1767276489494 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:08:09] "GET /status.json?t=1767276489524 HTTP/1.1" 200 -
+[11:08:10] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:08:20] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:08:30] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:08:40] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:08:50] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:09:00] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+127.0.0.1 - - [01/Jan/2026 11:09:09] "GET /activity.json?t=1767276549511 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:09:09] "GET /status.json?t=1767276549539 HTTP/1.1" 200 -
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:09:20] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:09:30] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:09:40] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:09:50] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:10:00] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:10:09] "GET /activity.json?t=1767276609494 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:10:09] "GET /status.json?t=1767276609582 HTTP/1.1" 200 -
+[11:10:10] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:10:20] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:10:30] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:10:41] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:10:51] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:11:01] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:11:09] "GET /activity.json?t=1767276669489 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:11:09] "GET /status.json?t=1767276669496 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:11:11] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:11:21] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:11:31] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:11:41] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:11:51] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:12:01] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:12:09] "GET /activity.json?t=1767276729497 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:12:09] "GET /status.json?t=1767276729522 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:12:11] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:12:21] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:12:42] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:12:52] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:13:02] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:13:09] "GET /activity.json?t=1767276789498 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:13:09] "GET /status.json?t=1767276789500 HTTP/1.1" 200 -
+[11:13:12] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:13:22] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+[11:13:32] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:13:42] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:13:52] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:14:09] "GET /activity.json?t=1767276849504 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:09] "GET /status.json?t=1767276849521 HTTP/1.1" 200 -
+[11:14:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:14:23] "GET /activity.json?t=1767276863127 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:23] "GET /status.json?t=1767276863128 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:14:24] "GET /activity.json?t=1767276864836 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:24] "GET /status.json?t=1767276864837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:26] "GET /status.json?t=1767276866836 HTTP/1.1" 200 -
+[11:14:28] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:14:28] "GET /status.json?t=1767276868837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:29] "GET /activity.json?t=1767276869836 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:30] "GET /status.json?t=1767276870837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:32] "GET /status.json?t=1767276872837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:34] "GET /activity.json?t=1767276874837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:34] "GET /status.json?t=1767276874837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:36] "GET /status.json?t=1767276876837 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:14:38] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:14:38] "GET /status.json?t=1767276878837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:39] "GET /activity.json?t=1767276879836 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:40] "GET /status.json?t=1767276880837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:42] "GET /status.json?t=1767276882837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:44] "GET /activity.json?t=1767276884837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:44] "GET /status.json?t=1767276884838 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:47] "GET /status.json?t=1767276887493 HTTP/1.1" 200 -
+[11:14:48] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:14:49] "GET /status.json?t=1767276889491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:50] "GET /activity.json?t=1767276890492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:51] "GET /status.json?t=1767276891490 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:14:53] "GET /status.json?t=1767276893491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:55] "GET /activity.json?t=1767276895490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:55] "GET /status.json?t=1767276895491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:14:57] "GET /status.json?t=1767276897490 HTTP/1.1" 200 -
+[11:14:58] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:14:59] "GET /status.json?t=1767276899492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:00] "GET /activity.json?t=1767276900491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:01] "GET /status.json?t=1767276901491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:03] "GET /status.json?t=1767276903492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:05] "GET /activity.json?t=1767276905492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:05] "GET /status.json?t=1767276905492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:07] "GET /status.json?t=1767276907490 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:15:08] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:15:09] "GET /status.json?t=1767276909495 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:10] "GET /activity.json?t=1767276910492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:11] "GET /status.json?t=1767276911493 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:13] "GET /status.json?t=1767276913492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:15] "GET /activity.json?t=1767276915490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:15] "GET /status.json?t=1767276915493 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:17] "GET /status.json?t=1767276917496 HTTP/1.1" 200 -
+[11:15:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:15:19] "GET /status.json?t=1767276919490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:20] "GET /activity.json?t=1767276920492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:21] "GET /status.json?t=1767276921490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:23] "GET /status.json?t=1767276923493 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:15:25] "GET /activity.json?t=1767276925490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:25] "GET /status.json?t=1767276925491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:27] "GET /status.json?t=1767276927490 HTTP/1.1" 200 -
+[11:15:28] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:15:29] "GET /status.json?t=1767276929497 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:30] "GET /activity.json?t=1767276930490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:31] "GET /status.json?t=1767276931491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:33] "GET /status.json?t=1767276933491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:35] "GET /activity.json?t=1767276935492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:35] "GET /status.json?t=1767276935492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:37] "GET /status.json?t=1767276937495 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:15:38] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:15:39] "GET /status.json?t=1767276939490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:40] "GET /activity.json?t=1767276940492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:41] "GET /status.json?t=1767276941492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:43] "GET /status.json?t=1767276943492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:45] "GET /activity.json?t=1767276945491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:15:45] "GET /status.json?t=1767276945491 HTTP/1.1" 200 -
+[11:15:48] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:15:58] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:16:08] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:16:09] "GET /status.json?t=1767276969497 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:09] "GET /activity.json?t=1767276969498 HTTP/1.1" 200 -
+[11:16:18] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:16:21] "GET /activity.json?t=1767276981031 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:21] "GET /status.json?t=1767276981035 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:22] "GET /status.json?t=1767276982838 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+127.0.0.1 - - [01/Jan/2026 11:16:24] "GET /activity.json?t=1767276984836 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:24] "GET /status.json?t=1767276984837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:26] "GET /status.json?t=1767276986838 HTTP/1.1" 200 -
+[11:16:28] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:16:28] "GET /status.json?t=1767276988838 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:30] "GET /activity.json?t=1767276990490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:31] "GET /status.json?t=1767276991491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:33] "GET /status.json?t=1767276993491 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:35] "GET /activity.json?t=1767276995497 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:35] "GET /status.json?t=1767276995498 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:37] "GET /status.json?t=1767276997490 HTTP/1.1" 200 -
+DEBUG: Writing status=EXTRACTING (final=EXTRACTING, active=takeout1.zip)
+[11:16:38] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:16:39] "GET /status.json?t=1767276999493 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:40] "GET /activity.json?t=1767277000490 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:41] "GET /status.json?t=1767277001492 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:42] "GET /status.json?t=1767277002837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:44] "GET /activity.json?t=1767277004837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:44] "GET /status.json?t=1767277004837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:46] "GET /status.json?t=1767277006837 HTTP/1.1" 200 -
+[11:16:48] Scanning for completed ZIPs in /Volumes/Backup/downloads...
+  Disk: Found 20 items
+  Disk: Found completed ZIP takeout1.zip
+  Disk: Found completed ZIP takeout10.zip
+  Disk: Found completed ZIP takeout11.zip
+  Disk: Found completed ZIP takeout12.zip
+  Disk: Found completed ZIP takeout2.zip
+  Disk: Found completed ZIP takeout23.zip
+  Disk: Found completed ZIP takeout3.zip
+  Disk: Found completed ZIP takeout4.zip
+  Disk: Found completed ZIP takeout5.zip
+  Disk: Found completed ZIP takeout6.zip
+  Disk: Found completed ZIP takeout7.zip
+  Disk: Found completed ZIP takeout8.zip
+  Disk: Found completed ZIP takeout9.zip
+  Disk: Found completed ZIP test_verification.zip
+127.0.0.1 - - [01/Jan/2026 11:16:48] "GET /status.json?t=1767277008836 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:49] "GET /activity.json?t=1767277009837 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jan/2026 11:16:50] "GET /status.json?t=1767277010837 HTTP/1.1" 200 -

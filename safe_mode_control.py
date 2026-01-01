@@ -11,9 +11,10 @@ import http.server
 import socketserver
 import threading
 import fcntl
+import re
 
 # Configuration
-PROJECT_DIR = "/Users/greg/.gemini/antigravity/scratch"
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 DOWNLOADS_DIR = "/Volumes/Backup/downloads"
 SSD_CACHE_DIR = "/Users/greg/takeout_cache"
 PHOTOS_DIR = "/Volumes/Backup/photos"
@@ -29,6 +30,7 @@ class SafeModeController:
         self.current_zip = None
         self.current_gid = None
         self.failed_zips = {} # name -> count
+        self._date_cache = {} # path -> date_str
 
     def _load_urls(self):
         urls_with_names = []
@@ -105,7 +107,7 @@ class SafeModeController:
                 json.dump(logs[:50], f)
 
         # Only print main phase changes, not every poll
-        if details and not details.startswith("Unpacking"):
+        if details and not details.startswith("Unpacking") and not details.startswith("Filing"):
             print(f"[{time.strftime('%H:%M:%S')}] {phase}: {details}")
 
     def rpc_call(self, method, params=None):
@@ -172,6 +174,9 @@ class SafeModeController:
         return False
 
     def _get_photo_date(self, photo_path):
+        if photo_path in self._date_cache:
+            return self._date_cache[photo_path]
+
         json_path = f"{photo_path}.json"
         
         # Check for truncated JSON filename (Google Takeout quirk)
@@ -185,11 +190,15 @@ class SafeModeController:
                 # Try finding any .json that starts with the same 47 chars (Takeout truncation)
                 dir_name = os.path.dirname(photo_path)
                 short_name = os.path.basename(photo_path)[:47]
-                for f in os.listdir(dir_name):
-                    if f.startswith(short_name) and f.endswith(".json"):
-                        json_path = os.path.join(dir_name, f)
-                        break
+                try:
+                    for f in os.listdir(dir_name):
+                        if f.startswith(short_name) and f.endswith(".json"):
+                            json_path = os.path.join(dir_name, f)
+                            break
+                except:
+                    pass
 
+        date_str = "Unknown"
         if os.path.exists(json_path):
             try:
                 with open(json_path, 'r') as f:
@@ -200,129 +209,167 @@ class SafeModeController:
                         ts = data.get("creationTime", {}).get("timestamp")
                     
                     if ts:
-                        return time.strftime('%Y-%m-%d', time.gmtime(int(ts)))
+                        date_str = time.strftime('%Y-%m-%d', time.gmtime(int(ts)))
             except:
                 pass
         
-        # Fallback to file creation time
-        try:
-            mtime = os.path.getmtime(photo_path)
-            return time.strftime('%Y-%m-%d', time.gmtime(mtime))
-        except:
-            return "Unknown"
+        if date_str == "Unknown":
+            # Fallback to file creation time
+            try:
+                mtime = os.path.getmtime(photo_path)
+                date_str = time.strftime('%Y-%m-%d', time.gmtime(mtime))
+            except:
+                pass
+        
+        self._date_cache[photo_path] = date_str
+        return date_str
 
     def extract_and_flatten(self, zip_path):
         basename = os.path.basename(zip_path)
-        tmp_dir = os.path.join(PHOTOS_DIR, f"_safe_tmp_{basename}")
-        os.makedirs(tmp_dir, exist_ok=True)
+        # 1. Stage ZIP to SSD to eliminate HDD read/write contention
+        ssd_zip_path = os.path.join(SSD_CACHE_DIR, basename)
         
-        # Pre-calculate total size for progress (7z l is fast)
-        self.update_status("EXTRACTING", "Calculating total size...")
-        total_kb = os.path.getsize(zip_path) // 1024 # Fallback
+        self.update_status("STAGING", f"Copying {basename} to SSD...", 0, 100)
+        start_stage = time.time()
         try:
-            res = subprocess.run(["/opt/homebrew/bin/7z", "l", zip_path], capture_output=True, text=True)
-            # Find the summary line at the bottom
-            for line in reversed(res.stdout.splitlines()):
-                if "files," in line or "3132 files" in line.replace("  "," "): # Match summary patterns
-                    parts = line.split()
-                    for p in reversed(parts):
-                        if p.isdigit() and int(p) > 1000000:
-                            total_kb = int(p) // 1024
-                            break
-                    if total_kb > 0: break
-                if "-------------------" in line: # Alternate parsing for the dash separator
-                    continue
+            # Use manual copy with progress for better UX
+            total_size = os.path.getsize(zip_path)
+            copied = 0
+            with open(zip_path, 'rb') as fsrc:
+                with open(ssd_zip_path, 'wb') as fdst:
+                    while True:
+                        buf = fsrc.read(1024*1024*8) # 8MB chunks
+                        if not buf: break
+                        fdst.write(buf)
+                        copied += len(buf)
+                        if copied % (1024*1024*512) == 0: # Update every 512MB
+                            percent = int((copied / total_size) * 100)
+                            self.update_status("STAGING", f"Staging to SSD: {percent}%", copied // 1024, total_size // 1024)
         except Exception as e:
-            print(f"Size parsing failed: {e}")
+            print(f"Staging failed: {e}")
+            if os.path.exists(ssd_zip_path): os.remove(ssd_zip_path)
+            ssd_zip_path = zip_path # Fallback to HDD if staging fails
+        
+        stage_duration = time.time() - start_stage
+        print(f"[{time.strftime('%H:%M:%S')}] Staging took {int(stage_duration//60)}m {int(stage_duration%60)}s")
 
-        # 7z: -mmt16 for M-series Mac multi-threading
-        self.update_status("EXTRACTING", "Unpacking with 7z...", 0, total_kb)
-        # Re-path 7z for reliability
+        # 2. Extract from SSD to HDD (Pure sequential write for HDD)
+        # Note: We now extract DIRECTLY to a temp folder on HDD, then rename.
+        # This keeps the HDD writes sequential.
+        tmp_dir_hdd = os.path.join(PHOTOS_DIR, f"_tmp_extract_{basename}")
+        if os.path.exists(tmp_dir_hdd):
+            shutil.rmtree(tmp_dir_hdd)
+        os.makedirs(tmp_dir_hdd, exist_ok=True)
+        
+        # Disable Spotlight on HDD temp dir
+        try:
+            subprocess.run(["mdutil", "-i", "off", tmp_dir_hdd], capture_output=True, timeout=5)
+        except: pass
+
+        self.update_status("EXTRACTING", "Calculating file count...")
+        total_kb = os.path.getsize(ssd_zip_path) // 1024
+        total_files = 0
+        try:
+            res = subprocess.run(["/opt/homebrew/bin/7z", "l", ssd_zip_path], capture_output=True, text=True)
+            for line in reversed(res.stdout.splitlines()):
+                if "files," in line or "3132 files" in line.replace("  "," "):
+                    parts = line.split()
+                    if parts and parts[0].isdigit():
+                        total_files = int(parts[0])
+                    break
+        except: pass
+
+        self.update_status("EXTRACTING", "Unpacking SSD -> HDD...", 0, total_kb)
+        
+        # Use 7z with single thread to HDD to ensure sequential writes
         z7_exe = "/opt/homebrew/bin/7z"
         if not os.path.exists(z7_exe): z7_exe = "7z"
+        z7_cmd = [z7_exe, "x", ssd_zip_path, f"-o{tmp_dir_hdd}", "-y", "-mmt1", "-bso1", "-bsp2"]
         
-        z7_cmd = [z7_exe, "x", zip_path, f"-o{tmp_dir}", "-y", "-mmt16", "-bso0", "-bsp1"] # bsp1 for progress (though we use du)
-        
-        # Capture stderr to a dedicated file
+        start_extract = time.time()
         err_log = os.path.join(PROJECT_DIR, "7z_error.log")
         with open(err_log, "a") as err_f:
-            err_f.write(f"\n--- {time.strftime('%Y-%m-%d %H:%M:%S')} Starting {basename} ---\n")
-            process = subprocess.Popen(z7_cmd, stdout=subprocess.PIPE, stderr=err_f, text=True)
+            process = subprocess.Popen(z7_cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=False)
             
-            start_time = time.time()
+            # Non-blocking stdout reading
+            try:
+                fd = process.stdout.fileno()
+                fl = fcntl.fcntl(fd, fcntl.F_GETFL)
+                fcntl.fcntl(fd, fcntl.F_SETFL, fl | os.O_NONBLOCK)
+            except: pass
+
+            percent_re = re.compile(rb"(\d{1,3})%")
+            rolling = b""
+            last_emit = 0.0
+            last_percent = -1
             
             while process.poll() is None:
-                # Monitor folder growth
-                current_kb = 0
+                now = time.time()
                 try:
-                    du_res = subprocess.run(["du", "-sk", tmp_dir], capture_output=True, text=True)
-                    current_kb = int(du_res.stdout.split()[0])
-                except: pass
-                
-                elapsed = time.time() - start_time
-                percent = min(99, int((current_kb / total_kb) * 100)) if total_kb > 0 else 0
-                
-                eta_str = "Calculating..."
-                if elapsed > 30 and current_kb > 1024:
-                    overall_speed = current_kb / elapsed # KB/s
-                    rem_kb = total_kb - current_kb
-                    if rem_kb > 0 and overall_speed > 10:
-                        sec = rem_kb / overall_speed
-                        eta_str = f"{int(sec//60)}m {int(sec%60)}s"
-                
-                self.update_status("EXTRACTING", f"Unpacking: {percent}% ({current_kb//1024}/{total_kb//1024} MB)", current_kb, total_kb, eta_str)
-                time.sleep(10)
+                    chunk = process.stdout.read(4096)
+                except: chunk = b""
+
+                if chunk:
+                    rolling = (rolling + chunk)[-4096:]
+                    matches = list(percent_re.finditer(rolling))
+                    if matches:
+                        try:
+                            percent = int(matches[-1].group(1))
+                            if percent != last_percent or (now - last_emit) >= 5.0:
+                                curr_kb = int((percent / 100.0) * total_kb)
+                                self.update_status("EXTRACTING", f"Unpacking: {percent}%", curr_kb, total_kb)
+                                last_emit = now
+                                last_percent = percent
+                        except: pass
+                else:
+                    time.sleep(0.5)
+
+        # Cleanup SSD ZIP immediately after extraction
+        if ssd_zip_path != zip_path:
+            try: os.remove(ssd_zip_path)
+            except: pass
+
+        extract_duration = time.time() - start_extract
+        print(f"[{time.strftime('%H:%M:%S')}] Extraction took {int(extract_duration//60)}m {int(extract_duration%60)}s")
+
+        # 3. Fast Organization (Move within same HDD partition is instant)
+        self.update_status("ORGANIZING", "Filing photos...")
+        start_org = time.time()
         
-        if process.returncode != 0:
-            msg = f"7z failed with code {process.returncode} for {basename}"
-            print(f"[{time.strftime('%H:%M:%S')}] ERROR: {msg}")
-            self.update_status("ERROR", msg)
-            return False
-            
-        # Smart Organization
-        self.update_status("ORGANIZING", "Sorting photos by date...")
+        existing_names_by_dir = {}
+        processed_files = 0
+        
         files_to_move = []
-        for root, _, files in os.walk(tmp_dir):
+        for root, _, files in os.walk(tmp_dir_hdd):
             for f in files:
                 if f.startswith(".") or f.lower().endswith(".json"): continue
                 files_to_move.append(os.path.join(root, f))
         
-        total = len(files_to_move)
-        processed = 0
-        start_move = time.time()
         for src in files_to_move:
-            date_str = self._get_photo_date(src) # YYYY-MM-DD
+            date_str = self._get_photo_date(src)
             year = date_str[:4]
             dest_year_dir = os.path.join(PHOTOS_DIR, year)
-            os.makedirs(dest_year_dir, exist_ok=True)
-            ext = os.path.splitext(src)[1].lower()
             
-            # Serial numbering: YYYY-MM-DD_0001.ext
+            if dest_year_dir not in existing_names_by_dir:
+                os.makedirs(dest_year_dir, exist_ok=True)
+                existing_names_by_dir[dest_year_dir] = set(os.listdir(dest_year_dir))
+            
+            ext = os.path.splitext(src)[1].lower()
             serial = 1
             while True:
                 new_name = f"{date_str}_{serial:04d}{ext}"
-                dst = os.path.join(dest_year_dir, new_name)
-                if not os.path.exists(dst): break
+                if new_name not in existing_names_by_dir[dest_year_dir]: break
                 serial += 1
             
-            try:
-                shutil.move(src, dst)
-            except Exception as e:
-                print(f"Failed to move {src}: {e}")
+            dst = os.path.join(dest_year_dir, new_name)
+            shutil.move(src, dst)
+            existing_names_by_dir[dest_year_dir].add(new_name)
+            processed_files += 1
             
-            processed += 1
-            if processed % 50 == 0:
-                elapsed_move = time.time() - start_move
-                move_speed = processed / elapsed_move if elapsed_move > 0 else 0
-                rem_files = total - processed
-                move_eta = ""
-                if move_speed > 0:
-                    sec = rem_files / move_speed
-                    move_eta = f"{int(sec//60)}m {int(sec%60)}s"
-                
-                self.update_status("FLATTENING", f"Filing: {processed}/{total}", processed, total, move_eta)
-            
-        shutil.rmtree(tmp_dir)
+        shutil.rmtree(tmp_dir_hdd)
+        org_duration = time.time() - start_org
+        total_time = stage_duration + extract_duration + org_duration
+        print(f"[{time.strftime('%H:%M:%S')}] Total: {int(total_time//60)}m. (Stage: {int(stage_duration)}s, Ext: {int(extract_duration)}s, Org: {int(org_duration)}s)")
         return True
 
     def _start_http_server(self):
@@ -374,10 +421,7 @@ class SafeModeController:
                 print(f"[{time.strftime('%H:%M:%S')}] STARTING EXTRACTION: {os.path.basename(next_zip)}")
                 if self.extract_and_flatten(next_zip):
                     self._save_processed(self.current_zip)
-                    try:
-                        os.remove(next_zip)
-                        print(f"[{time.strftime('%H:%M:%S')}] DELETED source {next_zip}")
-                    except: pass
+                    print(f"[{time.strftime('%H:%M:%S')}] Keeping source ZIP {next_zip}")
                 else:
                     self.failed_zips[basename] = self.failed_zips.get(basename, 0) + 1
                     print(f"[{time.strftime('%H:%M:%S')}] Failed to process {next_zip} (Attempt {self.failed_zips[basename]}/3)")
