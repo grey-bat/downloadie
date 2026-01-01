@@ -26,79 +26,75 @@
 
         <div id="status-message"></div>
 
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-label">Total Speed</div>
-                <div id="total-speed" class="stat-value">0 MB/s</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Active Downloads</div>
-                <div id="active-count" class="stat-value">0</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Waiting in Queue</div>
-                <div id="waiting-count" class="stat-value">0</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Success</div>
-                <div id="completed-count" class="stat-value">0 / 114</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Concurrency</div>
-                <div style="margin-top: 10px;">
-                    <select id="concurrency-select" class="status-badge"
-                        style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--accent-primary); cursor: pointer;"
-                        onchange="changeConcurrency(this.value)">
-                        <option value="1">1 File</option>
-                        <option value="2">2 Files</option>
-                        <option value="3" selected>3 Files</option>
-                    </select>
+        <div class="top-row">
+            <section class="section main-stats">
+                <h2 class="section-title">Live Status</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Total Speed</div>
+                        <div id="total-speed" class="stat-value">0 MB/s</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Extraction</div>
+                        <div id="extraction-status" class="stat-value"
+                            style="font-size: 0.95rem; color: var(--accent-primary);">Starting...</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Progress</div>
+                        <div id="completed-count" class="stat-value">0 / 114</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Global ETA</div>
+                        <div id="global-eta" class="stat-value">--</div>
+                    </div>
+                    <div class="stat-card" style="border-left: 2px solid var(--accent-secondary)">
+                        <div class="stat-label">System Mode</div>
+                        <div id="system-op-status" class="stat-value" style="font-size: 0.9rem; font-weight: 700;">
+                            INITIALIZING</div>
+                        <div id="system-op-details" style="font-size: 0.7rem; color: var(--text-dim); margin-top: 4px;">
+                            --</div>
+                    </div>
                 </div>
-            </div>
+
+                <div class="settings-grid" style="margin-top: 2rem;">
+                    <div class="setting-card">
+                        <label for="concurrency-select">Concurrency</label>
+                        <select id="concurrency-select" class="st-input" onchange="changeConcurrency(this.value)">
+                            <option value="1">1 ZIP (Stable)</option>
+                            <option value="2">2 ZIPs</option>
+                            <option value="3">3 ZIPs</option>
+                        </select>
+                    </div>
+                    <div class="setting-card">
+                        <label for="split-select">Connections/File</label>
+                        <select id="split-select" class="st-input" onchange="updateConnections(this.value)">
+                            <option value="4">4 (Stable)</option>
+                            <option value="8">8 (Fast)</option>
+                            <option value="16" selected>16 (Turbo)</option>
+                            <option value="32">32 (Extreme)</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="side-panel">
+                <h2 class="section-title">Event Log</h2>
+                <div class="system-log" id="system-log">
+                </div>
+            </aside>
         </div>
 
         <div class="chart-container">
             <canvas id="speedChart"></canvas>
         </div>
 
-        <div class="stats-grid" id="completion-stats" style="margin-top: 2rem;">
-            <div class="stat-card">
-                <div class="stat-label">Batch ETA (Current files)</div>
-                <div id="batch-eta" class="stat-value">--</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Global ETA (All 114)</div>
-                <div id="global-eta" class="stat-value">--</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Connections/File</div>
-                <div style="margin-top: 10px;">
-                    <select id="split-select" class="status-badge"
-                        style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--accent-secondary); cursor: pointer;"
-                        onchange="changeOption('split', this.value); changeOption('max-connection-per-server', this.value)">
-                        <option value="4" selected>4 (Stable)</option>
-                        <option value="8">8 (Fast)</option>
-                        <option value="16">16 (Turbo)</option>
-                        <option value="32">32 (Extreme)</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
+        <h2 class="section-title">Download Queues</h2>
         <div class="download-list" id="download-list">
-            <!-- Download items will be injected here -->
-        </div>
-
-        <div class="system-log" id="system-log">
-            <div class="log-entry info">
-                <span class="log-time">[System]</span>
-                <span class="log-msg">Dashboard initialized. Connecting to aria2c...</span>
-            </div>
         </div>
     </div>
 
     <script>
-        const RPC_URL = 'http://localhost:6806/jsonrpc';
+        const RPC_URL = 'http://localhost:6865/jsonrpc';
         let speedChart;
         const speedHistory = [];
         const MAX_HISTORY = 60; // 2 minutes at 2s interval
@@ -123,14 +119,23 @@
         }
 
         async function changeConcurrency(val) {
-            await changeOption('max-concurrent-downloads', val);
+            addLog(`Requesting concurrency change to: ${val} ZIPs...`, 'info');
+            const res = await changeOption('max-concurrent-downloads', val);
+            if (res) addLog(`SUCCESS: Max concurrent downloads set to ${val}`, 'success');
+            else addLog(`FAILED: Could not update concurrency.`, 'error');
+        }
+
+        async function updateConnections(val) {
+            addLog(`Requesting connections change to: ${val} per file...`, 'info');
+            const res1 = await changeOption('split', val);
+            const res2 = await changeOption('max-connection-per-server', val);
+            if (res1 && res2) addLog(`SUCCESS: Connections per file set to ${val}`, 'success');
+            else addLog(`FAILED: Could not update connections setting.`, 'error');
         }
 
         async function changeOption(key, val) {
             const res = await callRpc('aria2.changeGlobalOption', [{ [key]: val }]);
-            if (res && res.result === "OK") {
-                console.log(`Option ${key} changed to ${val}`);
-            }
+            return res && res.result === "OK";
         }
 
         function formatSpeed(bytesPerSec) {
@@ -151,9 +156,14 @@
 
         function updateStats(globalStat) {
             const speed = parseInt(globalStat.downloadSpeed);
-            document.getElementById('total-speed').textContent = formatSpeed(speed);
-            document.getElementById('active-count').textContent = globalStat.numActive;
-            document.getElementById('waiting-count').textContent = globalStat.numWaiting;
+            const speedEl = document.getElementById('total-speed');
+            if (speedEl) speedEl.textContent = formatSpeed(speed);
+
+            const activeEl = document.getElementById('active-count');
+            if (activeEl) activeEl.textContent = globalStat.numActive;
+
+            const waitingEl = document.getElementById('waiting-count');
+            if (waitingEl) waitingEl.textContent = globalStat.numWaiting;
 
             // numStopped is total that aren't active/waiting, but we need to know success vs fail
             // We'll update completed-count in the refresh loop after checking tellActive/tellStopped if possible
@@ -253,26 +263,86 @@
             `;
         }
 
-        async function refresh() {
-            const startFetch = Date.now();
-            const globalRes = await callRpc('aria2.getGlobalStat');
-            const latency = Date.now() - startFetch;
-            document.getElementById('latency-stats').textContent = `Latency: ${latency}ms`;
+        let lastDetailedFetch = 0;
+        let cachedStopped = [];
+        let cachedWaiting = [];
 
-            if (!globalRes) {
-                document.getElementById('connection-status').textContent = 'OFFLINE - Retrying...';
-                document.getElementById('connection-status').className = 'status-badge error';
-                return;
+        async function refresh() {
+            const globalRes = await callRpc('aria2.getGlobalStat');
+            if (!globalRes) return;
+
+            const latencyStart = Date.now();
+            updateStats(globalRes.result);
+
+            const speedMB = parseInt(globalRes.result.downloadSpeed) / (1024 * 1024);
+            updateChart(speedMB);
+
+            const activeRes = await callRpc('aria2.tellActive');
+
+            // Only fetch waiting/stopped every 10 seconds to save RPC load
+            const now = Date.now();
+            if (now - lastDetailedFetch > 10000) {
+                const waitingRes = await callRpc('aria2.tellWaiting', [0, 1000]);
+                const stoppedRes = await callRpc('aria2.tellStopped', [0, 1000]);
+                if (waitingRes) cachedWaiting = waitingRes.result;
+                if (stoppedRes) cachedStopped = stoppedRes.result;
+                lastDetailedFetch = now;
             }
 
-            // Fetch activity logs from Python backend
+            if (activeRes) {
+                const list = document.getElementById('download-list');
+                const allItems = [
+                    ...activeRes.result,
+                    ...cachedWaiting.slice(0, 5), // Only show first few waiting
+                    ...cachedStopped.slice(0, 3)  // Only show first few stopped
+                ];
+
+                list.innerHTML = allItems.map(createDownloadItem).join('') ||
+                    '<div style="text-align: center; color: var(--text-dim); padding: 2rem;">No active items.</div>';
+
+                const completedCount = cachedStopped.filter(f => f.status === 'complete').length;
+                document.getElementById('completed-count').textContent = `${completedCount} / 114`;
+
+                // Detailed ETA Calculation
+                const totalSpeed = parseInt(globalRes.result.downloadSpeed);
+                if (totalSpeed > 0) {
+                    const activeRemaining = activeRes.result.reduce((acc, item) => acc + (parseInt(item.totalLength) - parseInt(item.completedLength)), 0);
+                    const batchEtaEl = document.getElementById('batch-eta');
+                    if (batchEtaEl) batchEtaEl.textContent = formatTime(activeRemaining / totalSpeed);
+
+                    const globalEtaEl = document.getElementById('global-eta');
+                    // Only update global-eta from aria2 if aria2 is actually downloading
+                    if (globalEtaEl && totalSpeed > 0) {
+                        const totalEstimatedBytes = 114 * 53 * 1024 * 1024 * 1024;
+                        const totalCompletedBytes = (completedCount * 53 * 1024 * 1024 * 1024) + activeRes.result.reduce((acc, item) => acc + parseInt(item.completedLength), 0);
+                        const globalRemaining = Math.max(0, totalEstimatedBytes - totalCompletedBytes);
+                        globalEtaEl.textContent = formatTime(globalRemaining / totalSpeed);
+                    }
+                }
+            }
+
+            const latency = Date.now() - latencyStart;
+            const latencyEl = document.getElementById('latency-stats');
+            if (latencyEl) latencyEl.textContent = `Latency: ${latency}ms`;
+
+            const connStatus = document.getElementById('connection-status');
+            if (latency > 1000) {
+                connStatus.textContent = 'DISK BUSY';
+                connStatus.className = 'status-badge warning';
+            } else {
+                connStatus.textContent = 'SYSTEM HEALTHY';
+                connStatus.className = 'status-badge complete';
+            }
+        }
+
+        async function refreshLogs() {
             try {
                 const actRes = await fetch('activity.json?t=' + Date.now());
                 if (actRes.ok) {
                     const logs = await actRes.json();
                     const logContainer = document.getElementById('system-log');
                     logContainer.innerHTML = '';
-                    logs.forEach(log => {
+                    logs.slice(0, 30).forEach(log => {
                         const entry = document.createElement('div');
                         entry.className = `log-entry ${log.type}`;
                         entry.innerHTML = `<span class="log-time">[${log.time}]</span><span class="log-msg">${log.msg}</span>`;
@@ -280,45 +350,78 @@
                     });
                 }
             } catch (e) { }
+        }
 
-            document.getElementById('status-message').style.display = 'none';
-            updateStats(globalRes.result);
+        async function refreshStatus() {
+            try {
+                const res = await fetch('status.json?t=' + Date.now());
+                if (res.ok) {
+                    const status = await res.json();
 
-            const speedMB = parseInt(globalRes.result.downloadSpeed) / (1024 * 1024);
-            updateChart(speedMB);
+                    // Update Operation Status
+                    const opEl = document.getElementById('system-op-status');
+                    const detEl = document.getElementById('system-op-details');
+                    const isPaused = status.system_status === 'MIGRATING' || status.system_status === 'I/O PAUSE';
+                    if (opEl) {
+                        opEl.textContent = status.system_status || 'IDLE';
+                        if (status.system_status === 'MIGRATING' || status.system_status === 'I/O PAUSE') {
+                            opEl.style.color = '#f59e0b'; // Amber
+                        } else if (status.system_status === 'EXTRACTING') {
+                            opEl.style.color = '#3b82f6'; // Blue
+                        } else if (status.system_status === 'ERROR') {
+                            opEl.style.color = '#ef4444'; // Red
+                        } else {
+                            opEl.style.color = 'var(--success)';
+                        }
+                    }
+                    if (detEl) detEl.textContent = status.status_details || '--';
 
-            const activeRes = await callRpc('aria2.tellActive');
-            const stoppedRes = await callRpc('aria2.tellStopped', [0, 1000]);
+                    const globalEtaEl = document.getElementById('global-eta');
+                    if (globalEtaEl && status.extraction_eta && status.extraction_eta !== "") {
+                        globalEtaEl.textContent = status.extraction_eta;
+                        globalEtaEl.style.color = 'var(--accent-secondary)';
+                    }
 
-            if (activeRes && stoppedRes) {
-                const list = document.getElementById('download-list');
-                const activeHtml = activeRes.result.map(createDownloadItem).join('');
-                list.innerHTML = activeHtml || '<div style="text-align: center; color: var(--text-dim); padding: 2rem;">No active downloads. Check log for details.</div>';
+                    const el = document.getElementById('extraction-status');
+                    if (status.active_zip) {
+                        const currUnits = status.current_file > 1048576 ? (status.current_file / 1048576).toFixed(1) + ' GB' : (status.current_file / 1024).toFixed(1) + ' MB';
+                        const totalUnits = status.total_files > 1048576 ? (status.total_files / 1048576).toFixed(1) + ' GB' : (status.total_files / 1024).toFixed(1) + ' MB';
+                        let color = isPaused ? '#f59e0b' : 'var(--success)';
+                        let statusText = isPaused ? ' (PAUSED for Move)' : '';
 
-                const completedCount = stoppedRes.result.filter(f => f.status === 'complete').length;
-                document.getElementById('completed-count').textContent = `${completedCount} / 114`;
+                        // Add ETA if available
+                        let etaHtml = '';
+                        if (status.extraction_eta) {
+                            etaHtml = ` <span style="opacity: 0.7; font-size: 0.85em; margin-left: 8px;">(~${status.extraction_eta} remaining)</span>`;
+                        }
 
-                // Calculate Batch and Global ETAs
-                const totalSpeed = parseInt(globalRes.result.downloadSpeed);
-                if (totalSpeed > 0) {
-                    const activeRemaining = activeRes.result.reduce((acc, item) => acc + (parseInt(item.totalLength) - parseInt(item.completedLength)), 0);
-                    document.getElementById('batch-eta').textContent = formatTime(activeRemaining / totalSpeed);
+                        const progress = status.total_files > 0 ? `<br><span style="color: var(--accent-secondary)">${currUnits} / ${totalUnits}${statusText}</span>${etaHtml}` : '';
+                        el.innerHTML = `<span style="color: ${color}">●</span> ${status.active_zip.substring(0, 20)}...${progress}<br><small style="opacity: 0.7">Queue: ${status.queue_size}</small>`;
 
-                    const totalEstimatedBytes = 114 * 53 * 1024 * 1024 * 1024;
-                    const totalCompletedBytes = (completedCount * 53 * 1024 * 1024 * 1024) + activeRes.result.reduce((acc, item) => acc + parseInt(item.completedLength), 0);
-                    const globalRemaining = Math.max(0, totalEstimatedBytes - totalCompletedBytes);
-                    document.getElementById('global-eta').textContent = formatTime(globalRemaining / totalSpeed);
-                } else {
-                    document.getElementById('batch-eta').textContent = '--';
-                    document.getElementById('global-eta').textContent = '--';
+                        // Also update overall progress counter from status
+                        const completedCountEl = document.getElementById('completed-count');
+                        if (completedCountEl && status.processed_count !== undefined) {
+                            completedCountEl.textContent = `${status.processed_count} / 114`;
+                        } else if (completedCountEl) {
+                            // If controller doesn't provide it yet, use the queue size to deduce
+                            completedCountEl.textContent = `${114 - status.queue_size} / 114`;
+                        }
+                    } else if (status.queue_size > 0) {
+                        el.innerHTML = `<span style="color: var(--accent-secondary)">●</span> Waiting (${status.queue_size})`;
+                    } else {
+                        el.innerHTML = `<span style="color: var(--text-dim)">○</span> Idle`;
+                    }
                 }
-            }
+            } catch (e) { }
         }
 
         initChart();
-        addLog('System monitoring started.', 'info');
-        setInterval(refresh, 2000);
+        setInterval(refresh, 3000);   // Major stats every 3s
+        setInterval(refreshLogs, 5000); // Logs every 5s
+        setInterval(refreshStatus, 2000); // Extraction status every 2s
         refresh();
+        refreshLogs();
+        refreshStatus();
     </script>
 </body>
 
