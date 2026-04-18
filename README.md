@@ -1,49 +1,32 @@
-# Google Takeout High-Speed Downloader
+# downloadie
 
-This repository contains tools to systematically download large Google Takeout exports (terabytes of data) in parallel using `aria2c`, bypassing common redirect and authentication issues.
+## What It Is
+- High-speed parallel downloader for Google Takeout exports (terabyte-scale)
+- Uses aria2c for multi-connection downloads, bypassing redirect and auth issues
 
-## Prerequisites
+## Status
+- Active (periodic use) — runs when Takeout exports are available
+- Also includes Immich pipeline setup for photo ingestion after download
 
-- `aria2c` installed (`brew install aria2`)
-- Python 3
-- A valid Google Takeout archive link
+## Quick Start
+```bash
+pip install -r requirements.txt  # if exists
+# Ensure aria2c is installed: brew install aria2
+python sequential_turbo.py       # fast parallel download mode
+```
 
-## How it works
+## Commands
+- `sequential_turbo.py` — fastest mode, parallel aria2c downloads
+- `sequential_downloader.py` — safer sequential download
+- `batch_mode_control.py` — manage download batches
+- `generate_direct_urls.py` — generate direct download URLs from Takeout manifest
+- `setup_immich_pipeline.py` — configure Immich ingestion after download
+- `immich_ingest.py` — ingest downloaded files into Immich photo library
 
-Google Takeout serves files via `usercontent.google.com` links which are heavily protected. This tool works by:
-1. Identifying the direct URL pattern for your specific export batch.
-2. Cloning the security headers and cookies from a valid browser request.
-3. Using `aria2c` to download multiple parts (ZIP files) simultaneously with resume support.
+## Env Vars
+- Google account cookies (passed via aria2c config or browser session)
 
-## Setup Instructions
-
-1. **Get your direct download pattern**:
-   - Go to your Google Takeout management page.
-   - Open Developer Tools -> Network tab.
-   - Click "Download" on one file and cancel it.
-   - Right-click the request to `usercontent.google.com` -> Copy as cURL.
-   - Save this to `curl_command.txt` in this directory.
-
-2. **Generate Download Links**:
-   - Run the provided Python scripts to extract headers and generate the full list of chunks (e.g., 001 to 114).
-   ```bash
-   python3 generate_direct_urls.py
-   python3 convert_curl_to_aria2.py
-   ```
-
-3. **Start Downloading**:
-   - Run the generated shell script:
-   ```bash
-   sh download_takeout_aria2.sh
-   ```
-
-## Optimization
-
-The `download_takeout_aria2.sh` script is configured for high parallelism:
-- `-j 16`: Downloads 16 files at once.
-- `-x 16`: Uses 16 connections per file.
-- `-c`: Supports resuming interrupted downloads.
-
-## Security Warning
-
-**Do not commit your `curl_command.txt` or `cookies.txt`!** They contain your Google session tokens. This repository includes a `.gitignore` to protect these files.
+## Key Docs
+- `PRD.md` — product direction
+- `SPEC.md` — implementation approach
+- `PLAN.md` — current work
