@@ -1,193 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takeout Turbo Dashboard</title>
+    <title>Takeout Turbo v3.2</title>
     <link rel="icon" type="image/png" href="icon.png">
-    <link rel="stylesheet" href="dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent-primary: #a855f7;
+            --accent-secondary: #3b82f6;
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+            --success: #10b981;
+            --error: #ef4444;
+            --warning: #f59e0b;
+        }
+        
+        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', system-ui, sans-serif; margin: 0; padding: 24px; line-height: 1.5; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+        .logo-group { display: flex; align-items: center; gap: 16px; }
+        .logo-group img { width: 48px; height: 48px; border-radius: 12px; box-shadow: 0 0 20px rgba(168, 85, 247, 0.3); }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 32px; }
+        .stat-card { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.2s; }
+        .stat-label { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+        .stat-value { font-size: 1.75rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+        
+        .main-layout { display: grid; grid-template-columns: 1fr 350px; gap: 24px; min-height: 500px; }
+        .section { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
+        .section-title { font-size: 1rem; margin-top: 0; margin-bottom: 24px; color: var(--text-dim); font-weight: 600; display: flex; justify-content: space-between; }
+        
+        .pipeline-item { background: rgba(15, 23, 42, 0.5); padding: 24px; border-radius: 12px; border-left: 4px solid var(--accent-primary); margin-bottom: 20px; }
+        .pipeline-info { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+        .pipeline-name { font-weight: 700; font-size: 1.25rem; color: var(--text-main); }
+        .pipeline-status { font-size: 0.75rem; background: var(--accent-primary); color: white; padding: 4px 12px; border-radius: 99px; font-weight: 700; }
+        
+        .progress-container { margin: 20px 0; }
+        .progress-bar-bg { background: rgba(255,255,255,0.05); border-radius: 12px; height: 16px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)); transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1); width: 0%; }
+        .progress-details { display: flex; justify-content: space-between; font-size: 0.875rem; margin-top: 12px; color: var(--text-dim); }
+        
+        .event-log { height: 450px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--accent-primary) transparent; }
+        .log-entry { margin-bottom: 12px; padding: 12px; border-radius: 8px; background: rgba(0,0,0,0.1); border-left: 3px solid transparent; }
+        .log-entry.success { border-left-color: var(--success); }
+        .log-entry.error { border-left-color: var(--error); }
+        .log-entry.info { border-left-color: var(--accent-secondary); }
+        .log-time { color: var(--text-dim); font-size: 0.75rem; display: block; margin-bottom: 4px; }
+        .log-msg { font-size: 0.85rem; color: #e2e8f0; }
+        
+        .chart-container { height: 250px; margin-top: 24px; }
+        #connection-status { background: rgba(16, 185, 129, 0.1); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.2); padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; }
+    </style>
 </head>
-
 <body>
     <div class="container">
         <header>
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <img src="icon.png" alt="Icon"
-                    style="width: 50px; height: 50px; border-radius: 12px; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);">
-                <h1>Takeout Turbo Dashboard</h1>
+            <div class="logo-group">
+                <img src="icon.png" alt="Logo">
+                <div>
+                    <h1 style="margin:0; font-size: 1.5rem; letter-spacing: -0.02em;">Takeout Turbo <span style="color: var(--accent-primary)">v3.2</span></h1>
+                    <div id="system-time" style="font-size: 0.75rem; color: var(--text-dim); margin-top: 2px;">--:--:--</div>
+                </div>
             </div>
-            <div style="display: flex; gap: 10px; align-items: center;">
-                <div id="latency-stats" style="font-size: 0.8rem; color: var(--text-dim)">Latency: --ms</div>
-                <div id="connection-status" class="status-badge">Connecting to aria2c...</div>
-            </div>
+            <div id="connection-status">PIPELINE ACTIVE</div>
         </header>
 
-        <div id="status-message"></div>
-
-        <div class="top-row">
-            <section class="section main-stats">
-                <h2 class="section-title">Live Status</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-label">Total Speed</div>
-                        <div id="total-speed" class="stat-value">0 MB/s</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-label">Extraction</div>
-                        <div id="extraction-status" class="stat-value"
-                            style="font-size: 0.95rem; color: var(--accent-primary);">Starting...</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-label">Progress</div>
-                        <div id="completed-count" class="stat-value">0 / 114</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-label">Global ETA</div>
-                        <div id="global-eta" class="stat-value">--</div>
-                    </div>
-                    <div class="stat-card" style="border-left: 2px solid var(--accent-secondary)">
-                        <div class="stat-label">System Mode</div>
-                        <div id="system-op-status" class="stat-value" style="font-size: 0.9rem; font-weight: 700;">
-                            INITIALIZING</div>
-                        <div id="system-op-details" style="font-size: 0.7rem; color: var(--text-dim); margin-top: 4px;">
-                            --</div>
-                    </div>
-                </div>
-
-                <div class="settings-grid" style="margin-top: 2rem;">
-                    <div class="setting-card">
-                        <label for="concurrency-select">Concurrency</label>
-                        <select id="concurrency-select" class="st-input" onchange="changeConcurrency(this.value)">
-                            <option value="1">1 ZIP (Stable)</option>
-                            <option value="2">2 ZIPs</option>
-                            <option value="3">3 ZIPs</option>
-                        </select>
-                    </div>
-                    <div class="setting-card">
-                        <label for="split-select">Connections/File</label>
-                        <select id="split-select" class="st-input" onchange="updateConnections(this.value)">
-                            <option value="4">4 (Stable)</option>
-                            <option value="8">8 (Fast)</option>
-                            <option value="16" selected>16 (Turbo)</option>
-                            <option value="32">32 (Extreme)</option>
-                        </select>
-                    </div>
-                </div>
-            </section>
-
-            <aside class="side-panel">
-                <h2 class="section-title">Event Log</h2>
-                <div class="system-log" id="system-log">
-                </div>
-            </aside>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Throughput</div>
+                <div id="total-speed" class="stat-value" style="color: var(--accent-primary)">0.0 MB/s</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Progress</div>
+                <div id="total-progress" class="stat-value">0 / 114</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Data Processed</div>
+                <div id="total-data" class="stat-value">0.0 GB</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Global ETA</div>
+                <div id="global-eta" class="stat-value" style="color: var(--accent-secondary)">--</div>
+            </div>
         </div>
 
-        <div class="chart-container">
-            <canvas id="speedChart"></canvas>
-        </div>
+        <div class="main-layout">
+            <div class="left-col">
+                <section class="section">
+                    <h2 class="section-title">Pipeline Stages</h2>
+                    <div id="pipeline-container">
+                        <!-- Active Download -->
+                        <div id="dl-stage" class="pipeline-item">
+                            <div class="pipeline-info">
+                                <div>
+                                    <div id="dl-name" class="pipeline-name">--</div>
+                                    <div class="text-dim" style="font-size: 0.85rem; margin-top: 4px;">Phase 1: Downloading from Google to SSD</div>
+                                </div>
+                                <div id="dl-phase" class="pipeline-status">IDLE</div>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-bar-bg">
+                                    <div id="dl-fill" class="progress-bar-fill" style="width: 0%"></div>
+                                </div>
+                                <div class="progress-details">
+                                    <span id="dl-percent">0%</span>
+                                    <span id="dl-bytes">-- / --</span>
+                                </div>
+                            </div>
+                        </div>
 
-        <h2 class="section-title">Download Queues</h2>
-        <div class="download-list" id="download-list">
+                        <!-- Active Extraction -->
+                        <div id="ex-stage" class="pipeline-item" style="border-left-color: var(--success)">
+                            <div class="pipeline-info">
+                                <div>
+                                    <div id="ex-name" class="pipeline-name">--</div>
+                                    <div class="text-dim" style="font-size: 0.85rem; margin-top: 4px;">Phase 2: Unzipping from SSD to HDD (Flattened)</div>
+                                </div>
+                                <div id="ex-phase" class="pipeline-status" style="background: var(--success)">IDLE</div>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-bar-bg">
+                                    <div id="ex-fill" class="progress-bar-fill" style="width: 0%; background: linear-gradient(90deg, var(--success), #34d399);"></div>
+                                </div>
+                                <div class="progress-details">
+                                    <span id="ex-percent">0%</span>
+                                    <span id="ex-bytes">-- / --</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="speedChart"></canvas>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-col">
+                <section class="section">
+                    <h2 class="section-title">Event Log</h2>
+                    <div id="system-log" class="event-log">
+                        <div style="text-align: center; color: var(--text-dim); padding: 20px;">Waiting for activity...</div>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
 
     <script>
-        const RPC_URL = 'http://localhost:6865/jsonrpc';
         let speedChart;
-        const speedHistory = [];
-        const MAX_HISTORY = 60; // 2 minutes at 2s interval
-
-        async function callRpc(method, params = []) {
-            try {
-                const response = await fetch(RPC_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        jsonrpc: '2.0',
-                        id: 'dashboard',
-                        method: method,
-                        params: params
-                    })
-                });
-                return await response.json();
-            } catch (err) {
-                console.error('RPC Error:', err);
-                return null;
-            }
-        }
-
-        async function changeConcurrency(val) {
-            addLog(`Requesting concurrency change to: ${val} ZIPs...`, 'info');
-            const res = await changeOption('max-concurrent-downloads', val);
-            if (res) addLog(`SUCCESS: Max concurrent downloads set to ${val}`, 'success');
-            else addLog(`FAILED: Could not update concurrency.`, 'error');
-        }
-
-        async function updateConnections(val) {
-            addLog(`Requesting connections change to: ${val} per file...`, 'info');
-            const res1 = await changeOption('split', val);
-            const res2 = await changeOption('max-connection-per-server', val);
-            if (res1 && res2) addLog(`SUCCESS: Connections per file set to ${val}`, 'success');
-            else addLog(`FAILED: Could not update connections setting.`, 'error');
-        }
-
-        async function changeOption(key, val) {
-            const res = await callRpc('aria2.changeGlobalOption', [{ [key]: val }]);
-            return res && res.result === "OK";
-        }
-
-        function formatSpeed(bytesPerSec) {
-            const mb = bytesPerSec / (1024 * 1024);
-            return mb.toFixed(1) + ' MB/s';
-        }
-
-        function formatTime(seconds) {
-            if (!isFinite(seconds) || seconds < 0) return '--';
-            if (seconds === 0) return '0s';
-            const h = Math.floor(seconds / 3600);
-            const m = Math.floor((seconds % 3600) / 60);
-            const s = Math.floor(seconds % 60);
-            if (h > 0) return `${h}h ${m}m`;
-            if (m > 0) return `${m}m ${s}s`;
-            return `${s}s`;
-        }
-
-        function updateStats(globalStat) {
-            const speed = parseInt(globalStat.downloadSpeed);
-            const speedEl = document.getElementById('total-speed');
-            if (speedEl) speedEl.textContent = formatSpeed(speed);
-
-            const activeEl = document.getElementById('active-count');
-            if (activeEl) activeEl.textContent = globalStat.numActive;
-
-            const waitingEl = document.getElementById('waiting-count');
-            if (waitingEl) waitingEl.textContent = globalStat.numWaiting;
-
-            // numStopped is total that aren't active/waiting, but we need to know success vs fail
-            // We'll update completed-count in the refresh loop after checking tellActive/tellStopped if possible
-            // For now, let's at least show real connectivity
-
-            const connStatus = document.getElementById('connection-status');
-            if (speed === 0 && parseInt(globalStat.numActive) > 0) {
-                connStatus.textContent = 'STALLED - Check Disk/Network';
-                connStatus.className = 'status-badge error';
-            } else {
-                connStatus.textContent = 'Live Connection';
-                connStatus.className = 'status-badge complete';
-            }
-        }
-
-        function addLog(msg, type = 'info') {
-            const log = document.getElementById('system-log');
-            const entry = document.createElement('div');
-            const time = new Date().toLocaleTimeString();
-            entry.className = `log-entry ${type}`;
-            entry.innerHTML = `<span class="log-time">[${time}]</span><span class="log-msg">${msg}</span>`;
-            log.prepend(entry);
-            if (log.childNodes.length > 50) log.removeChild(log.lastChild);
-        }
+        const MAX_HISTORY = 60;
+        const speedHistory = Array(MAX_HISTORY).fill(0);
 
         function initChart() {
             const ctx = document.getElementById('speedChart').getContext('2d');
@@ -196,8 +164,8 @@
                 data: {
                     labels: Array(MAX_HISTORY).fill(''),
                     datasets: [{
-                        label: 'Download Speed (MB/s)',
-                        data: Array(MAX_HISTORY).fill(0),
+                        label: 'Speed (MB/s)',
+                        data: speedHistory,
                         borderColor: '#a855f7',
                         backgroundColor: 'rgba(168, 85, 247, 0.1)',
                         fill: true,
@@ -215,214 +183,80 @@
                         y: {
                             beginAtZero: true,
                             grid: { color: 'rgba(255,255,255,0.05)' },
-                            ticks: { color: '#9ca3af' }
+                            ticks: { color: '#94a3b8', font: { size: 10 } }
                         }
                     }
                 }
             });
         }
 
-        function updateChart(speedMB) {
-            if (!speedChart) return;
-            speedChart.data.datasets[0].data.push(speedMB);
-            speedChart.data.datasets[0].data.shift();
-            speedChart.update('none');
-        }
-
-        function createDownloadItem(item) {
-            const total = parseInt(item.totalLength);
-            const completed = parseInt(item.completedLength);
-            const percent = total > 0 ? ((completed / total) * 100).toFixed(1) : 0;
-            const speedVal = parseInt(item.downloadSpeed);
-            const speed = formatSpeed(speedVal);
-            const fileName = item.files[0].path.split('/').pop() || 'Initializing...';
-            const remaining = total - completed;
-            const etaSeconds = speedVal > 0 ? remaining / speedVal : Infinity;
-            const eta = formatTime(etaSeconds);
-
-            return `
-                <div class="download-item">
-                    <div class="file-info">
-                        <div class="file-name">${fileName}</div>
-                        <div class="status-badge">${item.status.toUpperCase()}</div>
-                    </div>
-                    <div class="progress-container">
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" style="width: ${percent}%"></div>
-                        </div>
-                        <div class="progress-info">
-                            <span>${percent}%</span>
-                            <span>${(completed / (1024 * 1024 * 1024)).toFixed(1)}GB / ${(total / (1024 * 1024 * 1024)).toFixed(1)}GB</span>
-                        </div>
-                    </div>
-                    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
-                        <span style="font-weight: 600; color: var(--accent-secondary)">${item.status === 'active' ? speed : 'WAITING'}</span>
-                        <span style="font-size: 0.8rem; color: var(--text-dim)">ETA: ${item.status === 'active' ? eta : '--'}</span>
-                    </div>
-                </div>
-            `;
-        }
-
-        let lastDetailedFetch = 0;
-        let cachedStopped = [];
-        let cachedWaiting = [];
-
-        async function refresh() {
-            const globalRes = await callRpc('aria2.getGlobalStat');
-            if (!globalRes) return;
-
-            const latencyStart = Date.now();
-            updateStats(globalRes.result);
-
-            const speedMB = parseInt(globalRes.result.downloadSpeed) / (1024 * 1024);
-            updateChart(speedMB);
-
-            const activeRes = await callRpc('aria2.tellActive');
-
-            // Only fetch waiting/stopped every 10 seconds to save RPC load
-            const now = Date.now();
-            if (now - lastDetailedFetch > 10000) {
-                const waitingRes = await callRpc('aria2.tellWaiting', [0, 1000]);
-                const stoppedRes = await callRpc('aria2.tellStopped', [0, 1000]);
-                if (waitingRes) cachedWaiting = waitingRes.result;
-                if (stoppedRes) cachedStopped = stoppedRes.result;
-                lastDetailedFetch = now;
-            }
-
-            if (activeRes) {
-                const list = document.getElementById('download-list');
-                const allItems = [
-                    ...activeRes.result,
-                    ...cachedWaiting.slice(0, 5), // Only show first few waiting
-                    ...cachedStopped.slice(0, 3)  // Only show first few stopped
-                ];
-
-                list.innerHTML = allItems.map(createDownloadItem).join('') ||
-                    '<div style="text-align: center; color: var(--text-dim); padding: 2rem;">No active items.</div>';
-
-                const completedCount = cachedStopped.filter(f => f.status === 'complete').length;
-                document.getElementById('completed-count').textContent = `${completedCount} / 114`;
-
-                // Detailed ETA Calculation
-                const totalSpeed = parseInt(globalRes.result.downloadSpeed);
-                if (totalSpeed > 0) {
-                    const activeRemaining = activeRes.result.reduce((acc, item) => acc + (parseInt(item.totalLength) - parseInt(item.completedLength)), 0);
-                    const batchEtaEl = document.getElementById('batch-eta');
-                    if (batchEtaEl) batchEtaEl.textContent = formatTime(activeRemaining / totalSpeed);
-
-                    const globalEtaEl = document.getElementById('global-eta');
-                    // Only update global-eta from aria2 if aria2 is actually downloading
-                    if (globalEtaEl && totalSpeed > 0) {
-                        const totalEstimatedBytes = 114 * 53 * 1024 * 1024 * 1024;
-                        const totalCompletedBytes = (completedCount * 53 * 1024 * 1024 * 1024) + activeRes.result.reduce((acc, item) => acc + parseInt(item.completedLength), 0);
-                        const globalRemaining = Math.max(0, totalEstimatedBytes - totalCompletedBytes);
-                        globalEtaEl.textContent = formatTime(globalRemaining / totalSpeed);
-                    }
-                }
-            }
-
-            const latency = Date.now() - latencyStart;
-            const latencyEl = document.getElementById('latency-stats');
-            if (latencyEl) latencyEl.textContent = `Latency: ${latency}ms`;
-
-            const connStatus = document.getElementById('connection-status');
-            if (latency > 1000) {
-                connStatus.textContent = 'DISK BUSY';
-                connStatus.className = 'status-badge warning';
-            } else {
-                connStatus.textContent = 'SYSTEM HEALTHY';
-                connStatus.className = 'status-badge complete';
-            }
-        }
-
-        async function refreshLogs() {
-            try {
-                const actRes = await fetch('activity.json?t=' + Date.now());
-                if (actRes.ok) {
-                    const logs = await actRes.json();
-                    const logContainer = document.getElementById('system-log');
-                    logContainer.innerHTML = '';
-                    logs.slice(0, 30).forEach(log => {
-                        const entry = document.createElement('div');
-                        entry.className = `log-entry ${log.type}`;
-                        entry.innerHTML = `<span class="log-time">[${log.time}]</span><span class="log-msg">${log.msg}</span>`;
-                        logContainer.appendChild(entry);
-                    });
-                }
-            } catch (e) { }
-        }
-
-        async function refreshStatus() {
+        async function updateDashboard() {
             try {
                 const res = await fetch('status.json?t=' + Date.now());
-                if (res.ok) {
-                    const status = await res.json();
+                if (!res.ok) return;
+                const data = await res.json();
 
-                    // Update Operation Status
-                    const opEl = document.getElementById('system-op-status');
-                    const detEl = document.getElementById('system-op-details');
-                    const isPaused = status.system_status === 'MIGRATING' || status.system_status === 'I/O PAUSE';
-                    if (opEl) {
-                        opEl.textContent = status.system_status || 'IDLE';
-                        if (status.system_status === 'MIGRATING' || status.system_status === 'I/O PAUSE') {
-                            opEl.style.color = '#f59e0b'; // Amber
-                        } else if (status.system_status === 'EXTRACTING') {
-                            opEl.style.color = '#3b82f6'; // Blue
-                        } else if (status.system_status === 'ERROR') {
-                            opEl.style.color = '#ef4444'; // Red
-                        } else {
-                            opEl.style.color = 'var(--success)';
-                        }
-                    }
-                    if (detEl) detEl.textContent = status.status_details || '--';
+                document.getElementById('system-time').innerText = data.time || '--:--:--';
+                document.getElementById('total-progress').innerText = `${data.processed_count || 0} / 114`;
+                document.getElementById('total-data').innerText = `${(data.total_gb_processed || 0).toFixed(1)} GB`;
+                
+                // Speed and Chart
+                const currentSpeed = (data.dl_speed || 0) + (data.ex_speed || 0);
+                document.getElementById('total-speed').innerText = `${currentSpeed.toFixed(1)} MB/s`;
+                if (speedChart) {
+                    speedChart.data.datasets[0].data.push(currentSpeed);
+                    speedChart.data.datasets[0].data.shift();
+                    speedChart.update('none');
+                }
 
-                    const globalEtaEl = document.getElementById('global-eta');
-                    if (globalEtaEl && status.extraction_eta && status.extraction_eta !== "") {
-                        globalEtaEl.textContent = status.extraction_eta;
-                        globalEtaEl.style.color = 'var(--accent-secondary)';
-                    }
+                // Download Card
+                document.getElementById('dl-name').innerText = data.dl_name || '--';
+                document.getElementById('dl-phase').innerText = data.dl_phase || 'IDLE';
+                document.getElementById('dl-percent').innerText = `${data.dl_pct || 0}%`;
+                document.getElementById('dl-fill').style.width = `${data.dl_pct || 0}%`;
+                
+                const dlGB = (data.dl_bytes || 0) / 1073741824;
+                const dlTotalGB = (data.dl_total_bytes || 0) / 1073741824;
+                document.getElementById('dl-bytes').innerText = `${dlGB.toFixed(1)}GB / ${dlTotalGB.toFixed(1)}GB`;
 
-                    const el = document.getElementById('extraction-status');
-                    if (status.active_zip) {
-                        const currUnits = status.current_file > 1048576 ? (status.current_file / 1048576).toFixed(1) + ' GB' : (status.current_file / 1024).toFixed(1) + ' MB';
-                        const totalUnits = status.total_files > 1048576 ? (status.total_files / 1048576).toFixed(1) + ' GB' : (status.total_files / 1024).toFixed(1) + ' MB';
-                        let color = isPaused ? '#f59e0b' : 'var(--success)';
-                        let statusText = isPaused ? ' (PAUSED for Move)' : '';
+                // Extraction Card
+                document.getElementById('ex-name').innerText = data.ex_name || '--';
+                document.getElementById('ex-phase').innerText = data.ex_phase || 'IDLE';
+                document.getElementById('ex-percent').innerText = `${data.ex_pct || 0}%`;
+                document.getElementById('ex-fill').style.width = `${data.ex_pct || 0}%`;
+                
+                const exGB = (data.ex_bytes || 0) / 1073741824;
+                const exTotalGB = (data.ex_total_bytes || 0) / 1073741824;
+                document.getElementById('ex-bytes').innerText = `${exGB.toFixed(1)}GB / ${exTotalGB.toFixed(1)}GB`;
+                
+                document.getElementById('global-eta').innerText = data.ex_eta || data.dl_eta || '--';
 
-                        // Add ETA if available
-                        let etaHtml = '';
-                        if (status.extraction_eta) {
-                            etaHtml = ` <span style="opacity: 0.7; font-size: 0.85em; margin-left: 8px;">(~${status.extraction_eta} remaining)</span>`;
-                        }
+            } catch (e) { console.error(e); }
+        }
 
-                        const progress = status.total_files > 0 ? `<br><span style="color: var(--accent-secondary)">${currUnits} / ${totalUnits}${statusText}</span>${etaHtml}` : '';
-                        el.innerHTML = `<span style="color: ${color}">●</span> ${status.active_zip.substring(0, 20)}...${progress}<br><small style="opacity: 0.7">Queue: ${status.queue_size}</small>`;
-
-                        // Also update overall progress counter from status
-                        const completedCountEl = document.getElementById('completed-count');
-                        if (completedCountEl && status.processed_count !== undefined) {
-                            completedCountEl.textContent = `${status.processed_count} / 114`;
-                        } else if (completedCountEl) {
-                            // If controller doesn't provide it yet, use the queue size to deduce
-                            completedCountEl.textContent = `${114 - status.queue_size} / 114`;
-                        }
-                    } else if (status.queue_size > 0) {
-                        el.innerHTML = `<span style="color: var(--accent-secondary)">●</span> Waiting (${status.queue_size})`;
-                    } else {
-                        el.innerHTML = `<span style="color: var(--text-dim)">○</span> Idle`;
-                    }
+        async function updateLogs() {
+            try {
+                const res = await fetch('activity.json?t=' + Date.now());
+                if (!res.ok) return;
+                const logs = await res.json();
+                const container = document.getElementById('system-log');
+                
+                if (logs && logs.length > 0) {
+                    container.innerHTML = logs.map(log => `
+                        <div class="log-entry ${log.type}">
+                            <span class="log-time">${log.time}</span>
+                            <span class="log-msg">${log.msg}</span>
+                        </div>
+                    `).join('');
                 }
             } catch (e) { }
         }
 
         initChart();
-        setInterval(refresh, 3000);   // Major stats every 3s
-        setInterval(refreshLogs, 5000); // Logs every 5s
-        setInterval(refreshStatus, 2000); // Extraction status every 2s
-        refresh();
-        refreshLogs();
-        refreshStatus();
+        setInterval(updateDashboard, 2000);
+        setInterval(updateLogs, 3000);
+        updateDashboard();
+        updateLogs();
     </script>
 </body>
-
 </html>

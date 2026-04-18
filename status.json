@@ -1,1 +1,1 @@
-{"system_status": "EXTRACTING", "status_details": "Unpacking: 65%", "active_zip": "takeout10", "current_file": 34080347, "total_files": 52431304, "extraction_eta": "", "processed_count": 1, "queue_size": 115, "time": "15:56:26"}
+{"time": "19:05:53", "processed_count": 1, "total_gb_processed": 50.0, "upcoming_queue": [], "dl_name": "Idle", "dl_phase": "Idle", "dl_pct": 0, "dl_bytes": 0, "dl_total_bytes": 0, "dl_speed": 0, "dl_eta": "--", "ex_name": "Idle", "ex_phase": "Idle", "ex_pct": 0, "ex_bytes": 0, "ex_total_bytes": 0, "ex_speed": 0, "ex_eta": "--"}

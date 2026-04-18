@@ -1,1 +1,13 @@
 
+/Volumes/Backup/downloads/takeout1.zip
+/Volumes/Backup/downloads/takeout10.zip
+/Volumes/Backup/downloads/takeout11.zip
+/Volumes/Backup/downloads/takeout12.zip
+/Volumes/Backup/downloads/takeout2.zip
+/Volumes/Backup/downloads/takeout23.zip
+/Volumes/Backup/downloads/takeout3.zip
+/Volumes/Backup/downloads/takeout4.zip
+/Volumes/Backup/downloads/takeout6.zip
+/Volumes/Backup/downloads/takeout7.zip
+/Volumes/Backup/downloads/takeout8.zip
+/Volumes/Backup/downloads/takeout9.zip

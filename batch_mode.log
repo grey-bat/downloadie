@@ -1,0 +1,9 @@
+[19:05:01] Processing download item: takeout_batch_2_part1
+[19:05:01] Starting step1_download for takeout_batch_2_part1
+[19:05:06] Step 1 complete for takeout_batch_2_part1, adding to extraction queue.
+[19:05:06] Processing download item: takeout_batch_2_part2
+[19:05:06] Starting step1_download for takeout_batch_2_part2
+[19:05:11] Step 1 complete for takeout_batch_2_part2, adding to extraction queue.
+[19:05:11] Processing download item: takeout_batch_2_part3
+[19:05:11] Starting step1_download for takeout_batch_2_part3
+[19:05:16] Step 1 complete for takeout_batch_2_part3, adding to extraction queue.

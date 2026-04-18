@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Takeout Turbo Board</title>
+    <style>
+        body { font-family: sans-serif; background: #111; color: #eee; padding: 40px; display: flex; justify-content: center; }
+        .card { background: #222; padding: 30px; border-radius: 12px; width: 500px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .stat { margin: 15px 0; font-size: 1.1em; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .progress-bg { background: #333; height: 24px; border-radius: 12px; overflow: hidden; margin-top: 10px; }
+        .progress-fg { background: #007bff; height: 100%; width: 0%; transition: width 0.3s; }
+        .label { color: #777; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px; }
+        .value { font-weight: bold; color: #fff; }
+        h2 { margin-top: 0; color: #007bff; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Takeout Turbo</h2>
+        <div class="stat"><span class="label">Batch</span><span id="batch" class="value">--</span></div>
+        <div class="stat"><span class="label">Part</span><span id="part" class="value">0</span> / <span id="total" class="value">0</span></div>
+        <div class="stat"><span class="label">Status</span><span id="phase" class="value">IDLE</span></div>
+        <div class="stat"><span class="label">Active File</span><span id="file" class="value">--</span></div>
+        <div class="stat"><span class="label">Download Speed</span><span id="speed" class="value">0 MB/s</span></div>
+        <div class="stat">
+            <span class="label">Task Progress</span>
+            <span id="progress-text" class="value">0%</span>
+            <div class="progress-bg"><div id="progress-bar" class="progress-fg"></div></div>
+        </div>
+    </div>
+    <script>
+        function update() {
+            fetch('status_v1.json')
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('batch').textContent = data.batch;
+                    document.getElementById('part').textContent = data.part;
+                    document.getElementById('total').textContent = data.total_parts;
+                    document.getElementById('phase').textContent = data.phase;
+                    document.getElementById('file').textContent = data.file;
+                    document.getElementById('speed').textContent = data.speed;
+                    document.getElementById('progress-text').textContent = data.progress;
+                    document.getElementById('progress-bar').style.width = data.progress;
+                })
+                .catch(() => {});
+        }
+        setInterval(update, 1000);
+        update();
+    </script>
+</body>
+</html>
