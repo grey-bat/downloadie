@@ -9,3 +9,7 @@ aria2.log
 *.zip
 aria2_stdout.log
 supervisor.log
+
+.env
+.env.*
+!.env.example
