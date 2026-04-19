@@ -7,7 +7,7 @@
 
 ### 🔴 Bugs / Correctness
 
-- [ ] **`sequential_downloader.py` lines 16-20 — hardcoded secrets committed to repo**
+- [x] **`sequential_downloader.py` lines 16-20 — hardcoded secrets committed to repo**
   - `JOB_ID`, `USER_ID`, `RAPT`, `COOKIES`, `UA` are all hardcoded as module-level constants and committed to git — `COOKIES` contains active Google session tokens including `NID`, `AEC`, `__Secure-ENID`
   - Fix: move all auth tokens to `.env` / environment variables; add cookie string to `.gitignore` patterns; rotate any committed cookies immediately
 
