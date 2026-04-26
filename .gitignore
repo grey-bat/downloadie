@@ -13,3 +13,7 @@ supervisor.log
 .env
 .env.*
 !.env.example
+
+*.log
+activity.json
+__pycache__/

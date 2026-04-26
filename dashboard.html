@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takeout Turbo v3.2</title>
+    <title>Takeout Turbo Dashboard</title>
     <link rel="icon" type="image/png" href="icon.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -19,52 +19,66 @@
             --warning: #f59e0b;
         }
         
-        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', system-ui, sans-serif; margin: 0; padding: 24px; line-height: 1.5; }
-        .container { max-width: 1200px; margin: 0 auto; }
+        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', system-ui, -apple-system, sans-serif; margin: 0; padding: 32px; line-height: 1.6; }
+        .container { max-width: 1400px; margin: 0 auto; }
         
-        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
-        .logo-group { display: flex; align-items: center; gap: 16px; }
-        .logo-group img { width: 48px; height: 48px; border-radius: 12px; box-shadow: 0 0 20px rgba(168, 85, 247, 0.3); }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo-group { display: flex; align-items: center; gap: 20px; }
+        .logo-group img { width: 56px; height: 56px; border-radius: 14px; box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4); border: 1px solid rgba(255,255,255,0.1); }
         
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 32px; }
-        .stat-card { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.2s; }
-        .stat-label { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
-        .stat-value { font-size: 1.75rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .stat-card { background: linear-gradient(145deg, var(--card-bg), rgba(30, 41, 59, 0.8)); padding: 28px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
+        .stat-card::after { content: ''; position: absolute; top: 0; right: 0; width: 100px; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.02)); transform: skewX(-45deg); }
+        .stat-card:hover { transform: translateY(-4px); border-color: rgba(168, 85, 247, 0.4); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+        .stat-label { color: var(--text-dim); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 12px; }
+        .stat-value { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
         
-        .main-layout { display: grid; grid-template-columns: 1fr 350px; gap: 24px; min-height: 500px; }
-        .section { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
-        .section-title { font-size: 1rem; margin-top: 0; margin-bottom: 24px; color: var(--text-dim); font-weight: 600; display: flex; justify-content: space-between; }
+        .main-layout { display: grid; grid-template-columns: 1.6fr 1fr; gap: 32px; }
+        @media (max-width: 1024px) { .main-layout { grid-template-columns: 1fr; } }
         
-        .pipeline-item { background: rgba(15, 23, 42, 0.5); padding: 24px; border-radius: 12px; border-left: 4px solid var(--accent-primary); margin-bottom: 20px; }
-        .pipeline-info { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
-        .pipeline-name { font-weight: 700; font-size: 1.25rem; color: var(--text-main); }
-        .pipeline-status { font-size: 0.75rem; background: var(--accent-primary); color: white; padding: 4px 12px; border-radius: 99px; font-weight: 700; }
+        .section { background: var(--card-bg); border-radius: 24px; padding: 32px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+        .section-title { font-size: 1.5rem; font-weight: 700; margin: 0 0 28px 0; display: flex; align-items: center; gap: 12px; letter-spacing: -0.01em; }
+        .section-title::before { content: ''; display: block; width: 6px; height: 20px; background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary)); border-radius: 4px; }
         
-        .progress-container { margin: 20px 0; }
-        .progress-bar-bg { background: rgba(255,255,255,0.05); border-radius: 12px; height: 16px; overflow: hidden; }
-        .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)); transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1); width: 0%; }
-        .progress-details { display: flex; justify-content: space-between; font-size: 0.875rem; margin-top: 12px; color: var(--text-dim); }
+        .pipeline-item { border-left: 3px solid rgba(255,255,255,0.05); padding-left: 28px; margin-bottom: 32px; position: relative; transition: all 0.3s ease; }
+        .pipeline-item:hover { border-left-color: rgba(255,255,255,0.2); }
+        .pipeline-item::before { content: ''; position: absolute; left: -8px; top: 4px; width: 13px; height: 13px; border-radius: 50%; background: var(--accent-primary); box-shadow: 0 0 15px var(--accent-primary); border: 2px solid var(--card-bg); }
+        .pipeline-info { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+        .pipeline-name { font-weight: 700; font-size: 1.25rem; color: #fff; margin-bottom: 4px; }
+        .pipeline-status { padding: 6px 16px; border-radius: 99px; font-size: 0.8rem; font-weight: 800; background: linear-gradient(135deg, var(--accent-primary), #c084fc); color: #fff; letter-spacing: 0.08em; text-transform: uppercase; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3); }
         
-        .event-log { height: 450px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--accent-primary) transparent; }
-        .log-entry { margin-bottom: 12px; padding: 12px; border-radius: 8px; background: rgba(0,0,0,0.1); border-left: 3px solid transparent; }
+        .progress-container { margin-top: 16px; }
+        .progress-bar-bg { height: 12px; background: rgba(0,0,0,0.4); border-radius: 6px; overflow: hidden; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); }
+        .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent-primary), #c084fc); width: 0%; transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 6px; box-shadow: 0 0 15px rgba(168, 85, 247, 0.6); }
+        .progress-details { display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--text-dim); margin-top: 12px; font-variant-numeric: tabular-nums; font-weight: 500; }
+
+        .event-log { height: 550px; overflow-y: auto; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 0.9rem; padding-right: 12px; }
+        .event-log::-webkit-scrollbar { width: 8px; }
+        .event-log::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 4px; }
+        .event-log::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+        .event-log::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+        .log-entry { padding: 12px 16px; border-radius: 12px; margin-bottom: 10px; display: flex; gap: 16px; background: rgba(0,0,0,0.25); border-left: 4px solid transparent; transition: background 0.2s; align-items: center; }
+        .log-entry:hover { background: rgba(255,255,255,0.05); }
+        .log-entry.info { border-left-color: var(--accent-secondary); }
         .log-entry.success { border-left-color: var(--success); }
         .log-entry.error { border-left-color: var(--error); }
-        .log-entry.info { border-left-color: var(--accent-secondary); }
-        .log-time { color: var(--text-dim); font-size: 0.75rem; display: block; margin-bottom: 4px; }
-        .log-msg { font-size: 0.85rem; color: #e2e8f0; }
+        .log-entry.warning { border-left-color: var(--warning); }
+        .log-time { color: var(--text-dim); white-space: nowrap; font-size: 0.8rem; font-weight: 600; opacity: 0.8; }
+        .log-msg { font-size: 0.9rem; color: #f1f5f9; line-height: 1.4; }
         
-        .chart-container { height: 250px; margin-top: 24px; }
-        #connection-status { background: rgba(16, 185, 129, 0.1); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.2); padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; }
+        .chart-container { height: 300px; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); }
+        #connection-status { background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05)); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.3); padding: 8px 20px; border-radius: 99px; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px; box-shadow: 0 0 20px rgba(16, 185, 129, 0.1); }
+        #connection-status::before { content: ''; display: block; width: 8px; height: 8px; background: var(--success); border-radius: 50%; box-shadow: 0 0 10px var(--success); }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <div class="logo-group">
-                <img src="icon.png" alt="Logo">
+                <img src="icon.png" alt="Logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNhODU1ZjciIHN0cm9rZS13aWR0aD0iMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDE1djRhMiAyIDAgMCAxLTIgMkg1YTIgMiAwIDAgMS0yLTJ2LTQiPjwvcGF0aD48cG9seWxpbmUgcG9pbnRzPSI3IDEwIDEyIDE1IDE3IDEwIj48L3BvbHlsaW5lPjxsaW5lIHgxPSIxMiIgeTE9IjE1IiB4Mj0iMTIiIHkyPSIzIj48L2xpbmU+PC9zdmc+'">
                 <div>
-                    <h1 style="margin:0; font-size: 1.5rem; letter-spacing: -0.02em;">Takeout Turbo <span style="color: var(--accent-primary)">v3.2</span></h1>
-                    <div id="system-time" style="font-size: 0.75rem; color: var(--text-dim); margin-top: 2px;">--:--:--</div>
+                    <h1 style="margin:0; font-size: 1.8rem; letter-spacing: -0.02em;">Takeout Turbo Dashboard</h1>
+                    <div id="system-time" style="font-size: 0.85rem; color: var(--text-dim); margin-top: 4px; font-weight: 500;">--:--:--</div>
                 </div>
             </div>
             <div id="connection-status">PIPELINE ACTIVE</div>
@@ -77,11 +91,7 @@
             </div>
             <div class="stat-card">
                 <div class="stat-label">Progress</div>
-                <div id="total-progress" class="stat-value">0 / 114</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Data Processed</div>
-                <div id="total-data" class="stat-value">0.0 GB</div>
+                <div id="total-progress" class="stat-value">0 / 3</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Global ETA</div>
@@ -99,7 +109,7 @@
                             <div class="pipeline-info">
                                 <div>
                                     <div id="dl-name" class="pipeline-name">--</div>
-                                    <div class="text-dim" style="font-size: 0.85rem; margin-top: 4px;">Phase 1: Downloading from Google to SSD</div>
+                                    <div class="text-dim" style="font-size: 0.9rem; margin-top: 6px;">Phase 1: Downloading from Google to SSD</div>
                                 </div>
                                 <div id="dl-phase" class="pipeline-status">IDLE</div>
                             </div>
@@ -109,7 +119,7 @@
                                 </div>
                                 <div class="progress-details">
                                     <span id="dl-percent">0%</span>
-                                    <span id="dl-bytes">-- / --</span>
+                                    <span id="dl-bytes"></span>
                                 </div>
                             </div>
                         </div>
@@ -119,9 +129,9 @@
                             <div class="pipeline-info">
                                 <div>
                                     <div id="ex-name" class="pipeline-name">--</div>
-                                    <div class="text-dim" style="font-size: 0.85rem; margin-top: 4px;">Phase 2: Unzipping from SSD to HDD (Flattened)</div>
+                                    <div class="text-dim" style="font-size: 0.9rem; margin-top: 6px;">Phase 2: Unzipping from SSD to HDD / Immich Ingest</div>
                                 </div>
-                                <div id="ex-phase" class="pipeline-status" style="background: var(--success)">IDLE</div>
+                                <div id="ex-phase" class="pipeline-status" style="background: linear-gradient(135deg, var(--success), #34d399);">IDLE</div>
                             </div>
                             <div class="progress-container">
                                 <div class="progress-bar-bg">
@@ -129,7 +139,7 @@
                                 </div>
                                 <div class="progress-details">
                                     <span id="ex-percent">0%</span>
-                                    <span id="ex-bytes">-- / --</span>
+                                    <span id="ex-bytes"></span>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +155,7 @@
                 <section class="section">
                     <h2 class="section-title">Event Log</h2>
                     <div id="system-log" class="event-log">
-                        <div style="text-align: center; color: var(--text-dim); padding: 20px;">Waiting for activity...</div>
+                        <div style="text-align: center; color: var(--text-dim); padding: 40px; font-weight: 500;">Waiting for activity...</div>
                     </div>
                 </section>
             </div>
@@ -170,7 +180,7 @@
                         backgroundColor: 'rgba(168, 85, 247, 0.1)',
                         fill: true,
                         tension: 0.4,
-                        borderWidth: 2,
+                        borderWidth: 3,
                         pointRadius: 0
                     }]
                 },
@@ -183,7 +193,7 @@
                         y: {
                             beginAtZero: true,
                             grid: { color: 'rgba(255,255,255,0.05)' },
-                            ticks: { color: '#94a3b8', font: { size: 10 } }
+                            ticks: { color: '#94a3b8', font: { size: 11, family: 'Inter' } }
                         }
                     }
                 }
@@ -197,11 +207,10 @@
                 const data = await res.json();
 
                 document.getElementById('system-time').innerText = data.time || '--:--:--';
-                document.getElementById('total-progress').innerText = `${data.processed_count || 0} / 114`;
-                document.getElementById('total-data').innerText = `${(data.total_gb_processed || 0).toFixed(1)} GB`;
+                document.getElementById('total-progress').innerText = `${data.processed_count || 0} / 3`;
                 
                 // Speed and Chart
-                const currentSpeed = (data.dl_speed || 0) + (data.ex_speed || 0);
+                const currentSpeed = (data.dl_speed || 0);
                 document.getElementById('total-speed').innerText = `${currentSpeed.toFixed(1)} MB/s`;
                 if (speedChart) {
                     speedChart.data.datasets[0].data.push(currentSpeed);
@@ -214,22 +223,12 @@
                 document.getElementById('dl-phase').innerText = data.dl_phase || 'IDLE';
                 document.getElementById('dl-percent').innerText = `${data.dl_pct || 0}%`;
                 document.getElementById('dl-fill').style.width = `${data.dl_pct || 0}%`;
-                
-                const dlGB = (data.dl_bytes || 0) / 1073741824;
-                const dlTotalGB = (data.dl_total_bytes || 0) / 1073741824;
-                document.getElementById('dl-bytes').innerText = `${dlGB.toFixed(1)}GB / ${dlTotalGB.toFixed(1)}GB`;
 
                 // Extraction Card
                 document.getElementById('ex-name').innerText = data.ex_name || '--';
                 document.getElementById('ex-phase').innerText = data.ex_phase || 'IDLE';
                 document.getElementById('ex-percent').innerText = `${data.ex_pct || 0}%`;
                 document.getElementById('ex-fill').style.width = `${data.ex_pct || 0}%`;
-                
-                const exGB = (data.ex_bytes || 0) / 1073741824;
-                const exTotalGB = (data.ex_total_bytes || 0) / 1073741824;
-                document.getElementById('ex-bytes').innerText = `${exGB.toFixed(1)}GB / ${exTotalGB.toFixed(1)}GB`;
-                
-                document.getElementById('global-eta').innerText = data.ex_eta || data.dl_eta || '--';
 
             } catch (e) { console.error(e); }
         }
@@ -253,7 +252,7 @@
         }
 
         initChart();
-        setInterval(updateDashboard, 2000);
+        setInterval(updateDashboard, 1500);
         setInterval(updateLogs, 3000);
         updateDashboard();
         updateLogs();
