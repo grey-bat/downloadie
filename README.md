@@ -23,8 +23,14 @@ python sequential_turbo.py       # fast parallel download mode
 - `setup_immich_pipeline.py` — configure Immich ingestion after download
 - `immich_ingest.py` — ingest downloaded files into Immich photo library
 
-## Env Vars
-- Google account cookies (passed via aria2c config or browser session)
+## Env Vars & Authentication
+Since Google Takeout links are bound to your user session, `aria2c` requires valid cookies to download the files successfully. To configure this:
+1. Copy `.env.example` to `.env`.
+2. Open Google Takeout in your browser, open Developer Tools (Network Tab), and begin a download.
+3. Inspect the download request.
+4. Copy the entire `Cookie` request header and paste it as `TAKEOUT_COOKIES` in `.env`.
+5. Note the `rapt` parameter from the download URL and set `TAKEOUT_RAPT`.
+6. Set the `TAKEOUT_JOB_ID` and `TAKEOUT_USER_ID` based on the URL parameters (`j` and `user`).
 
 ## Key Docs
 - `PRD.md` — product direction

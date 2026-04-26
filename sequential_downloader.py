@@ -24,13 +24,41 @@ COOKIES = os.getenv("TAKEOUT_COOKIES", "")
 def update_board(status):
     temp_status = STATUS_FILE + ".tmp"
     try:
+        # Also log to console nicely
+        phase = status.get("phase", "")
+        progress = status.get("progress", "")
+        speed = status.get("speed", "")
+        part = status.get("part", "")
+
+        # Format a nice output string for the console
+        out_msg = f"[{phase}] Part {part}/3 - Progress: {progress}"
+        if speed and speed != "--":
+            out_msg += f" - Speed: {speed}"
+
+        sys.stdout.write(f"\r\033[K{out_msg}")
+        sys.stdout.flush()
+
+        # Update JSON payload to support the complex dashboard
+        dashboard_payload = {
+            "time": time.strftime("%H:%M:%S"),
+            "processed_count": part,
+            "dl_speed": float(speed.replace("MB/s", "").replace("KB/s", "").strip() or 0) if "MB/s" in speed or "KB/s" in speed else 0,
+            "dl_name": status.get("file", ""),
+            "dl_phase": status.get("phase", ""),
+            "dl_pct": int(progress.replace("%", "")) if "%" in progress else 0,
+            "ex_name": status.get("file", ""),
+            "ex_phase": status.get("phase", "") if status.get("phase") in ["EXTRACTING", "CLEANED", "INGESTING"] else "IDLE",
+            "ex_pct": int(progress.replace("%", "")) if "%" in progress and status.get("phase") == "EXTRACTING" else 0
+        }
+
         with open(temp_status, "w") as f:
-            json.dump(status, f)
+            json.dump(dashboard_payload, f)
         os.rename(temp_status, STATUS_FILE)
     except Exception as e:
-        print(f"Error updating status: {e}")
+        print(f"\nError updating status: {e}")
 
 def run():
+    print("\nStarting Takeout Sequential Download Pipeline...")
     status = {"batch": BATCH_NAME, "part": 0, "total_parts": 3, "phase": "IDLE", "speed": "0 MB/s", "progress": "0%", "file": ""}
     update_board(status)
     
@@ -69,17 +97,27 @@ def run():
                         if "DL:" in p:
                             status["speed"] = p.replace("DL:", "")
                     update_board(status)
-                except: pass
+                except Exception as e:
+                    pass
         process.wait()
         
         if process.returncode != 0:
-            status["phase"] = "ERROR: Download failed"
+            status["phase"] = f"ERROR: Download failed (aria2c exit code {process.returncode})"
+            # aria2c returns 22 for HTTP error 401/403 which means auth failed.
+            if process.returncode == 22:
+                status["phase"] = "ERROR: Auth Expired (HTTP 401/403)"
             update_board(status)
             return
 
-        # Check if it is a real file
-        if os.path.getsize(dest_path) < 100 * 1024 * 1024:
-            status["phase"] = "ERROR: Auth Expired (Small file)"
+        # Explicitly check for ZIP magic bytes to verify successful download
+        try:
+            with open(dest_path, 'rb') as f:
+                if f.read(4) != b'PK\x03\x04':
+                    status["phase"] = "ERROR: Invalid ZIP (Auth likely expired or file corrupted)"
+                    update_board(status)
+                    return
+        except Exception as e:
+            status["phase"] = f"ERROR: Failed to read file: {e}"
             update_board(status)
             return
 
@@ -101,7 +139,8 @@ def run():
                     for p in parts:
                         if "%" in p: status["progress"] = p
                     update_board(status)
-                except: pass
+                except Exception as e:
+                    pass
         ex_proc.wait()
         
         if ex_proc.returncode != 0:
@@ -114,8 +153,30 @@ def run():
         status["phase"] = "CLEANED"
         update_board(status)
 
-    status["phase"] = "COMPLETE"
-    status["progress"] = "100%"
+    status["phase"] = "INGESTING"
+    status["progress"] = "Triggering Immich"
+    update_board(status)
+
+    immich_api_key = os.getenv("IMMICH_API_KEY", "")
+    if immich_api_key:
+        print(f"Triggering immich_ingest.py for {BATCH_NAME}...")
+        ingest_cmd = [
+            sys.executable, "immich_ingest.py",
+            "--api-key", immich_api_key,
+            "--root", HDD_BASE,
+            "--batch", BATCH_NAME,
+            "--real"
+        ]
+        try:
+            subprocess.run(ingest_cmd, check=True)
+            status["phase"] = "COMPLETE_AND_INGESTED"
+        except Exception as e:
+            print(f"Immich ingest failed: {e}")
+            status["phase"] = "COMPLETE_BUT_INGEST_FAILED"
+    else:
+        status["phase"] = "COMPLETE"
+        status["progress"] = "100%"
+
     update_board(status)
 
 if __name__ == "__main__":
