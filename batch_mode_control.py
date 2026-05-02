@@ -110,8 +110,10 @@ class BatchController:
             logs = []
             if os.path.exists(ACTIVITY_FILE):
                 try:
-                    with open(ACTIVITY_FILE, 'r') as f: logs = json.load(f)
-                except: pass
+                    with open(ACTIVITY_FILE, 'r') as f:
+                        logs = json.load(f)
+                except:
+                    pass
             logs.insert(0, log_entry)
             with open(ACTIVITY_FILE, 'w') as f: json.dump(logs[:50], f)
 
@@ -132,7 +134,8 @@ class BatchController:
                         f.seek(0)
                         json.dump(logs[:50], f)
                         f.truncate()
-                except: pass
+                except:
+                    pass
             return None
 
     def get_free_ssd_gb(self):
@@ -145,7 +148,8 @@ class BatchController:
                 self._reload_queue()
                 if self.download_queue.empty():
                     self.update_status("DL", "IDLE")
-                    time.sleep(30); continue
+                    time.sleep(30)
+                    continue
             
             item = self.download_queue.get()
             name, dest_path = item['name'], os.path.join(DOWNLOADS_DIR_SSD, f"{item['name']}.zip")
@@ -162,7 +166,8 @@ class BatchController:
                     print(f"[{time.strftime('%H:%M:%S')}] Low SSD space ({self.get_free_ssd_gb():.1f}GB). Waiting...")
                     self.update_status("DL", "WAITING", name)
                     self.download_queue.put(item)
-                    time.sleep(30); continue
+                    time.sleep(30)
+                    continue
                 
                 print(f"[{time.strftime('%H:%M:%S')}] Starting step1_download for {name}")
                 if self.step1_download(item):
@@ -193,26 +198,34 @@ class BatchController:
                     eta = f"{int(rem_sec//60)}m {int(rem_sec%60)}s"
                 
                 self.update_status("DL", "STABILIZING", name, int((curr_size/(117*1024**3))*100), curr_size, 117*1024**3, speed, eta)
-                if curr_size == last_size and curr_size > 0: stable_count += 1
-                else: stable_count = 0; last_size = curr_size
+                if curr_size == last_size and curr_size > 0:
+                    stable_count += 1
+                else:
+                    stable_count = 0
+                    last_size = curr_size
                 last_time = now
                 time.sleep(15)
             self.update_status("DL", "ADOPTED", name, 100, last_size, last_size)
             return True
 
-        if not url.startswith("http"): return False
+        if not url.startswith("http"):
+            return False
         
         params = [ [url], {"dir": DOWNLOADS_DIR_SSD, "out": f"{name}.zip", "split": "16", "max-connection-per-server": "16", "disk-cache": "128M", "file-allocation": "falloc"} ]
         res = self.rpc_call("aria2.addUri", params)
-        if not res: return False
+        if not res:
+            return False
         
         gid = res['result']
         while True:
             res = self.rpc_call("aria2.tellStatus", [gid])
-            if not res: break
+            if not res:
+                break
             s = res['result']
-            if s['status'] == 'complete': break
-            if s['status'] == 'error': return False
+            if s['status'] == 'complete':
+                break
+            if s['status'] == 'error':
+                return False
             
             speed = int(s['downloadSpeed']) / 1024**2
             comp, tot = int(s['completedLength']), int(s['totalLength'])
@@ -226,7 +239,8 @@ class BatchController:
         while not self.stop_event.is_set():
             if self.extract_queue.empty():
                 self.update_status("EX", "IDLE")
-                time.sleep(5); continue
+                time.sleep(5)
+                continue
                 
             item = self.extract_queue.get()
             try:
@@ -259,8 +273,10 @@ class BatchController:
         rolling, last_update, start_time = b"", 0, time.time()
         
         while True:
-            try: chunk = process.stdout.read(4096)
-            except BlockingIOError: chunk = b""
+            try:
+                chunk = process.stdout.read(4096)
+            except BlockingIOError:
+                chunk = b""
             
             if chunk:
                 rolling = (rolling + chunk)[-4096:]
@@ -276,7 +292,8 @@ class BatchController:
                         eta = f"{int(rem_mb/speed//60)}m {int(rem_mb/speed%60)}s" if speed > 0 else "--"
                         self.update_status("EX", "EXTRACTING", name, percent, proc_b, zip_size, speed, eta)
                         last_update = now
-            if process.poll() is not None: break
+            if process.poll() is not None:
+                break
             time.sleep(0.5)
         return process.returncode == 0
 
@@ -295,11 +312,13 @@ class BatchController:
                 if not os.path.exists(os.path.join(dest_dir, f_norm)):
                     return False
             return True
-        except: return False
+        except:
+            return False
 
     def step4_cleanup(self, item):
         p = os.path.join(DOWNLOADS_DIR_SSD, f"{item['name']}.zip")
-        if os.path.exists(p): os.remove(p)
+        if os.path.exists(p):
+            os.remove(p)
 
     def trigger_immich_ingest(self):
         """Triggers the Immich ingestion pipeline in the background."""
@@ -353,11 +372,15 @@ class BatchController:
     def run(self):
         d_t = threading.Thread(target=self.downloader_thread, name="Downloader")
         e_t = threading.Thread(target=self.extractor_thread, name="Extractor")
-        d_t.start(); e_t.start()
+        d_t.start()
+        e_t.start()
         try:
-            while True: time.sleep(1)
+            while True:
+                time.sleep(1)
         except KeyboardInterrupt:
-            self.stop_event.set(); d_t.join(); e_t.join()
+            self.stop_event.set()
+            d_t.join()
+            e_t.join()
 
 if __name__ == "__main__":
     BatchController().run()
